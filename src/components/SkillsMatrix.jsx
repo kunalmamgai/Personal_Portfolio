@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion as Motion } from 'framer-motion'
 import { FiCode, FiServer, FiCpu, FiTool, FiCheck } from 'react-icons/fi'
 import { skillCategories, stack } from '../data/portfolio'
+import TechIcon from './TechIcon'
 
 const categoryIconMap = {
   frontend: FiCode,
@@ -27,7 +28,7 @@ export default function SkillsMatrix() {
           Skills & Architecture Matrix
         </h2>
         <p className="mt-4 text-base text-slate-300 leading-relaxed">
-          Categorized breakdown of technical capabilities across frontend engineering, Python & FastAPI backends, and computational problem solving.
+          Categorized visual breakdown of technical capabilities across languages, frameworks, backends, and CS fundamentals.
         </p>
       </div>
 
@@ -59,7 +60,7 @@ export default function SkillsMatrix() {
         })}
       </div>
 
-      {/* Active Category Display */}
+      {/* Active Category Visual Skill Cards Grid */}
       <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-6 sm:p-8 backdrop-blur-xl shadow-[0_20px_50px_rgba(2,6,23,0.6)]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
           <div className="flex items-center gap-4">
@@ -72,29 +73,32 @@ export default function SkillsMatrix() {
             </div>
           </div>
           <span className="self-start sm:self-auto rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-mono text-cyan-200">
-            {currentCategory.skills.length} Key Competencies
+            {currentCategory.skills.length} Brand Competencies
           </span>
         </div>
 
-        {/* Skills Progress Bars & Badges */}
-        <div className="grid gap-6 md:grid-cols-2">
+        {/* Skills Cards Grid with Logos */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {currentCategory.skills.map((skill, index) => (
             <Motion.div
               key={skill.name}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="rounded-2xl border border-white/5 bg-slate-950/80 p-4 hover:border-cyan-400/20 transition"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80 p-5 hover:border-cyan-400/40 transition duration-300 shadow-lg"
             >
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="font-display font-semibold text-sm text-white">{skill.name}</span>
-                  <span className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-mono text-cyan-300 uppercase">
-                    {skill.tag}
-                  </span>
-                </div>
-                <span className="text-xs font-mono font-bold text-slate-400">{skill.level}%</span>
+              <div className="flex items-center justify-between mb-4">
+                <TechIcon name={skill.name} size="lg" showLabel={true} />
+                <span className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-mono text-cyan-300 uppercase">
+                  {skill.tag}
+                </span>
               </div>
+
+              <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1.5">
+                <span>Proficiency</span>
+                <span className="font-bold text-cyan-300">{skill.level}%</span>
+              </div>
+
               <div className="h-2 w-full overflow-hidden rounded-full bg-slate-800">
                 <Motion.div
                   initial={{ width: 0 }}
@@ -108,20 +112,19 @@ export default function SkillsMatrix() {
         </div>
       </div>
 
-      {/* Infinite Scrolling Ribbon */}
+      {/* Infinite Scrolling Tech Marquee with Official Logos */}
       <div className="mt-12 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80 py-4 shadow-inner">
         <Motion.div
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
           className="flex w-max gap-4"
         >
           {[...stack, ...stack, ...stack].map((item, idx) => (
             <span
               key={`${item}-${idx}`}
-              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-200"
+              className="flex items-center gap-2.5 rounded-full border border-white/10 bg-slate-900 px-4 py-2 text-xs font-semibold text-slate-200 hover:border-cyan-400/30 transition"
             >
-              <FiCheck className="text-cyan-400 text-xs" />
-              {item}
+              <TechIcon name={item} size="sm" showLabel={true} />
             </span>
           ))}
         </Motion.div>

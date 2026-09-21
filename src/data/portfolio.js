@@ -34,21 +34,34 @@ export const socialLinks = [
   { label: 'Email', href: 'mailto:kunalmamgai@gmail.com', username: 'kunalmamgai@gmail.com' },
 ]
 
+export const heroOrbiterLogos = [
+  { name: 'React', color: '#61DAFB' },
+  { name: 'Python', color: '#3776AB' },
+  { name: 'C++', color: '#00599C' },
+  { name: 'Tailwind CSS', color: '#06B6D4' },
+  { name: 'FastAPI', color: '#009688' },
+  { name: 'JavaScript', color: '#F7DF1E' },
+]
+
 export const stack = [
-  'HTML5',
-  'CSS3',
-  'JavaScript',
   'React',
   'Python',
-  'FastAPI',
-  'REST APIs',
-  'Backend Development',
   'C++',
-  'DSA Practice',
-  'MERN Learning',
+  'FastAPI',
+  'Tailwind CSS',
+  'JavaScript',
+  'HTML5',
+  'CSS3',
+  'Node.js',
+  'MongoDB',
+  'Express',
+  'Git',
+  'GitHub',
+  'Vercel',
+  'Render',
+  'Postman',
+  'Vite',
   'Framer Motion',
-  'Git & GitHub',
-  'Adaptable Learning',
 ]
 
 export const technicalJourney = [
@@ -141,13 +154,13 @@ export const skillCategories = [
     description: 'Building modern, high-performance, responsive interfaces with precise micro-interactions.',
     color: 'cyan',
     skills: [
-      { name: 'React.js', level: 92, tag: 'Core Stack' },
-      { name: 'JavaScript (ES6+)', level: 90, tag: 'Language' },
-      { name: 'Tailwind CSS v4', level: 95, tag: 'Styling' },
-      { name: 'HTML5 & CSS3', level: 96, tag: 'Foundations' },
+      { name: 'React', level: 92, tag: 'Core Stack' },
+      { name: 'JavaScript', level: 90, tag: 'Language' },
+      { name: 'Tailwind CSS', level: 95, tag: 'Styling' },
+      { name: 'HTML5', level: 96, tag: 'Foundations' },
+      { name: 'CSS3', level: 95, tag: 'Styling' },
       { name: 'Framer Motion', level: 88, tag: 'Animations' },
       { name: 'Responsive Design', level: 95, tag: 'UX' },
-      { name: 'Design Systems', level: 86, tag: 'Architecture' },
     ],
   },
   {
@@ -158,10 +171,10 @@ export const skillCategories = [
     skills: [
       { name: 'Python', level: 88, tag: 'Language' },
       { name: 'FastAPI', level: 85, tag: 'Framework' },
-      { name: 'RESTful APIs', level: 90, tag: 'Architecture' },
-      { name: 'Node.js & Express', level: 80, tag: 'MERN Stack' },
+      { name: 'Node.js', level: 80, tag: 'MERN Stack' },
+      { name: 'Express', level: 80, tag: 'Server' },
       { name: 'MongoDB', level: 78, tag: 'Database' },
-      { name: 'API Integration', level: 92, tag: 'Full-Stack' },
+      { name: 'RESTful APIs', level: 90, tag: 'Architecture' },
     ],
   },
   {
@@ -172,9 +185,7 @@ export const skillCategories = [
     skills: [
       { name: 'C++', level: 88, tag: 'Language' },
       { name: 'Data Structures (DSA)', level: 86, tag: 'Algorithms' },
-      { name: 'OOP Concepts', level: 90, tag: 'Paradigm' },
       { name: 'System Debugging', level: 92, tag: 'Problem Solving' },
-      { name: 'Algorithmic Optimization', level: 84, tag: 'Efficiency' },
     ],
   },
   {
@@ -183,11 +194,10 @@ export const skillCategories = [
     description: 'Modern development environment, version control, and cloud hosting workflows.',
     color: 'purple',
     skills: [
-      { name: 'Git & GitHub', level: 92, tag: 'Version Control' },
+      { name: 'Git', level: 92, tag: 'Version Control' },
+      { name: 'GitHub', level: 92, tag: 'Collaboration' },
       { name: 'Vite', level: 90, tag: 'Build Tool' },
-      { name: 'Vercel & Render', level: 88, tag: 'Deployment' },
-      { name: 'npm & uv', level: 86, tag: 'Package Tools' },
-      { name: 'Chrome DevTools', level: 94, tag: 'Debugging' },
+      { name: 'Vercel', level: 88, tag: 'Deployment' },
       { name: 'Postman', level: 88, tag: 'API Testing' },
     ],
   },
@@ -222,6 +232,12 @@ export const projects = [
       'An immersive AR/VR web platform built to give users interactive virtual tours of historic Indian heritage sites and cultural landmarks before visiting in person.',
     image:
       'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
+    ],
     outcome:
       'Reached the National Finals at the INNOVIT Hackathon, receiving high praise for cultural impact, smooth AR integration, and full-stack architecture.',
     features: [
@@ -246,6 +262,11 @@ export const projects = [
       'An award-grade personal developer portfolio featuring an interactive shell terminal, command palette (Cmd+K), particle mesh background, and visual journey timeline.',
     image:
       'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
+    ],
     outcome:
       'Designed to represent my technical identity, learning journey, and UI/UX engineering standards in an unforgettable interactive experience.',
     features: [
@@ -254,7 +275,7 @@ export const projects = [
       'Visual timeline detailing my complete learning roadmap',
       'Ambient HTML5 particle grid background canvas',
     ],
-    tags: ['React 19', 'Tailwind CSS v4', 'Framer Motion', 'Vite', 'HTML5 Canvas'],
+    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite', 'HTML5 Canvas'],
     role: 'UI/UX Engineer & Developer',
     github: 'https://github.com/kunalmamgai',
     demo: '#',
@@ -270,13 +291,17 @@ export const projects = [
       'A sleek, high-impact agency landing page built with editorial typography, glassmorphism visual layers, and physics-based motion reveals.',
     image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    ],
     outcome: 'Delivered maximum visual memory for brand presentation while maintaining 60fps scroll performance.',
     features: [
       'Editorial typography & dynamic hero section layout',
       'Smooth entrance reveals powered by Framer Motion',
       'Interactive service grid with glass hover reflections',
     ],
-    tags: ['React', 'Tailwind CSS', 'Motion Physics', 'Responsive Design'],
+    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
     role: 'Frontend Developer',
     github: 'https://github.com/kunalmamgai',
     demo: '#',
@@ -292,13 +317,17 @@ export const projects = [
       'A full-stack social portal for developers to showcase projects, share tech stacks, and collaborate through structured REST API services.',
     image:
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    ],
     outcome: 'Demonstrates end-to-end full-stack capabilities, token authentication, and clean API structure.',
     features: [
       'JWT User Authentication & Session Management',
       'REST API endpoints for user profiles & project posts',
       'MongoDB data modeling and indexing',
     ],
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'RESTful APIs'],
     role: 'Full-Stack Developer',
     github: 'https://github.com/kunalmamgai',
     demo: '#',
@@ -352,7 +381,7 @@ export const terminalCommands = {
   help: 'Available commands: whoami, journey, skills, projects, hackathon, contact, github, linkedin, clear',
   whoami: 'Kunal Mamgai — Full-Stack Developer & UI/UX Specialist based in Haldwani, Uttarakhand. CBSE 10th Topper & INNOVIT Hackathon Finalist.',
   journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: React & Tailwind -> 2024-25: INNOVIT Hackathon Finalist (AR-Chaelogist) -> Present: Full-Stack (FastAPI + MERN)',
-  skills: 'Frontend: React, Tailwind CSS, JS (ES6+), Framer Motion | Backend: Python, FastAPI, Node.js, Express, MongoDB | CS: C++, Data Structures & Algorithms',
+  skills: 'Frontend: React, Tailwind CSS, JS, Framer Motion | Backend: Python, FastAPI, Node.js, Express, MongoDB | CS: C++, Data Structures & Algorithms',
   projects: '1. AR-Chaelogist (INNOVIT Finalist) | 2. Personal Portfolio Masterpiece | 3. Studio Canvas | 4. DevConnect MERN Hub',
   hackathon: 'Finalist at INNOVIT Hackathon with AR-Chaelogist: An immersive AR/VR portal for Indian heritage & culture (React + FastAPI + Python + Render/Vercel).',
   contact: 'Email: kunalmamgai@gmail.com | GitHub: github.com/kunalmamgai | LinkedIn: linkedin.com/in/kunal-mamgai-777k/',

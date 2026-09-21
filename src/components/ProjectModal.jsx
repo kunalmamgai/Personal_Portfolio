@@ -1,56 +1,76 @@
 import { motion as Motion, AnimatePresence } from 'framer-motion'
-import { FiX, FiExternalLink, FiGithub, FiCheckCircle, FiUser, FiAward } from 'react-icons/fi'
+import { FiX, FiExternalLink, FiGithub, FiCheckCircle } from 'react-icons/fi'
+import ProjectCarousel from './ProjectCarousel'
+import TechIcon from './TechIcon'
 
 export default function ProjectModal({ project, isOpen, onClose }) {
   if (!isOpen || !project) return null
 
+  const projectImages = project.images && project.images.length > 0 ? project.images : [project.image]
+
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl">
         <Motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          initial={{ opacity: 0, scale: 0.92, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 30 }}
-          className="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-cyan-500/30 bg-slate-900 shadow-[0_25px_90px_rgba(2,6,23,0.95)] ring-1 ring-cyan-400/20 max-h-[90vh] flex flex-col"
+          exit={{ opacity: 0, scale: 0.92, y: 30 }}
+          className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-cyan-500/30 bg-slate-900 shadow-[0_25px_90px_rgba(2,6,23,0.95)] ring-1 ring-cyan-400/20 max-h-[92vh] flex flex-col"
         >
-          {/* Header Image / Visual Banner */}
-          <div className="relative h-60 w-full overflow-hidden bg-slate-950">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="h-full w-full object-cover saturate-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-            
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-950/80 text-white backdrop-blur hover:bg-slate-900 transition"
-            >
-              <FiX className="text-xl" />
-            </button>
-
-            <div className="absolute bottom-4 left-6 right-6">
-              <span className="rounded-full bg-cyan-400/20 border border-cyan-400/40 px-3 py-1 text-xs font-semibold text-cyan-200 uppercase tracking-wider">
+          {/* Top Control Bar */}
+          <div className="flex items-center justify-between border-b border-white/10 bg-slate-950 px-6 py-4">
+            <div className="flex items-center gap-3">
+              <span className="rounded-full bg-cyan-400/10 border border-cyan-400/30 px-3 py-1 text-xs font-semibold text-cyan-200 uppercase tracking-wider">
                 {project.type}
               </span>
-              <h2 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-white">
+              <h2 className="font-display text-xl font-bold text-white">
                 {project.title}
               </h2>
             </div>
+            <button
+              onClick={onClose}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white transition"
+            >
+              <FiX className="text-xl" />
+            </button>
           </div>
 
           {/* Modal Content Scroll Body */}
           <div className="overflow-y-auto p-6 space-y-6 text-slate-300">
+            {/* Full-width Screenshot Carousel */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-3">Project Screenshots & Live UI</p>
+              <ProjectCarousel images={projectImages} title={project.title} />
+            </div>
+
+            {/* Description & Overview */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-wider text-cyan-400">Overview</h4>
               <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-200">{project.description}</p>
             </div>
 
+            {/* Impact & Outcome */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-400">Impact & Outcome</h4>
               <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300 bg-white/5 border border-white/10 rounded-2xl p-4">{project.outcome}</p>
             </div>
 
+            {/* Tech Stack Logos Bar */}
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-3">Technologies Used</h4>
+              <div className="flex flex-wrap gap-3">
+                {project.tags.map((tag) => (
+                  <div
+                    key={tag}
+                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-950 px-3.5 py-2 text-xs text-slate-200"
+                  >
+                    <TechIcon name={tag} size="sm" showLabel={true} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Features */}
             {project.features && project.features.length > 0 && (
               <div>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-3">Key Features & Architecture</h4>
@@ -65,6 +85,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               </div>
             )}
 
+            {/* Action Bar */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
               <div>
                 <span className="text-xs text-slate-500 font-medium">Role:</span>
@@ -72,7 +93,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                {project.demo && (
+                {project.demo && project.demo !== '#' && (
                   <a
                     href={project.demo}
                     target="_blank"

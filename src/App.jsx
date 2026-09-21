@@ -10,9 +10,8 @@ import {
   FiTerminal,
   FiCommand,
   FiCopy,
-  FiCheck,
   FiMapPin,
-  FiAward,
+  FiMaximize2,
 } from 'react-icons/fi'
 import {
   developerProfile,
@@ -22,6 +21,7 @@ import {
   projects,
   socialLinks,
   stats,
+  heroOrbiterLogos,
 } from './data/portfolio'
 
 import BackgroundCanvas from './components/BackgroundCanvas'
@@ -32,6 +32,7 @@ import JourneyTimeline from './components/JourneyTimeline'
 import SkillsMatrix from './components/SkillsMatrix'
 import ProjectModal from './components/ProjectModal'
 import HackathonSpotlight from './components/HackathonSpotlight'
+import TechIcon from './components/TechIcon'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -135,7 +136,7 @@ export default function App() {
 
       {/* Main Content Area */}
       <main id="home" className="relative z-10">
-        {/* HERO SECTION */}
+        {/* HERO SECTION WITH FLOATING TECH ORBITERS */}
         <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:pb-28 lg:pt-24 items-center">
           <Motion.div
             initial="hidden"
@@ -154,8 +155,20 @@ export default function App() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-300">
-              {developerProfile.intro} Focused on React, Tailwind CSS, Python, FastAPI, and C++ Data Structures.
+              {developerProfile.intro} Building with modern React, FastAPI, Python, C++ DSA, and Tailwind CSS.
             </p>
+
+            {/* Tech Badges Row */}
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {heroOrbiterLogos.map((tech) => (
+                <span
+                  key={tech.name}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-md"
+                >
+                  <TechIcon name={tech.name} size="sm" showLabel={true} />
+                </span>
+              ))}
+            </div>
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-4">
@@ -163,7 +176,7 @@ export default function App() {
                 href="#projects"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition shadow-[0_4px_20px_rgba(34,211,238,0.4)]"
               >
-                <span>View Projects</span>
+                <span>Explore Visual Projects</span>
                 <FiArrowRight />
               </a>
               <button
@@ -189,7 +202,7 @@ export default function App() {
             </div>
           </Motion.div>
 
-          {/* Profile Visual Card */}
+          {/* Profile Visual Card with Floating Logo Orbiters */}
           <Motion.div
             initial="hidden"
             animate="visible"
@@ -197,6 +210,32 @@ export default function App() {
             variants={fadeUp}
             className="relative"
           >
+            {/* Floating Orbiting Tech Badges */}
+            <Motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -top-6 -left-6 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-cyan-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(34,211,238,0.3)] backdrop-blur-md"
+            >
+              <TechIcon name="React" size="md" showLabel={true} />
+            </Motion.div>
+
+            <Motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              className="absolute top-1/3 -right-6 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-amber-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(245,158,11,0.3)] backdrop-blur-md"
+            >
+              <TechIcon name="Python" size="md" showLabel={true} />
+            </Motion.div>
+
+            <Motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              className="absolute -bottom-6 left-1/4 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-blue-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(59,130,246,0.3)] backdrop-blur-md"
+            >
+              <TechIcon name="C++" size="md" showLabel={true} />
+            </Motion.div>
+
+            {/* Profile Photo Card */}
             <div className="relative overflow-hidden rounded-[2.2rem] border border-cyan-400/30 bg-slate-900/80 p-4 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
               <div className="relative overflow-hidden rounded-[1.6rem]">
                 <img
@@ -272,13 +311,13 @@ export default function App() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                Selected Work & Case Studies
+                Full-Width Visual Work
               </span>
               <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
                 Projects Showcase
               </h2>
               <p className="mt-4 max-w-xl text-base text-slate-300">
-                Click any project card to open its deep-dive case study with architecture details and live demo links.
+                Click any project card to view full-size multi-screenshot carousels and architecture details.
               </p>
             </div>
 
@@ -300,7 +339,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid with Full-Width Visual Screenshots */}
           <div className="grid gap-8 md:grid-cols-2">
             {filteredProjects.map((project, idx) => (
               <Motion.article
@@ -310,40 +349,50 @@ export default function App() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 backdrop-blur-xl hover:border-cyan-400/40 transition duration-300 shadow-[0_16px_40px_rgba(2,6,23,0.6)]"
+                className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 backdrop-blur-xl hover:border-cyan-400/40 transition duration-300 shadow-[0_16px_40px_rgba(2,6,23,0.6)] flex flex-col justify-between"
               >
-                <div className="relative h-60 w-full overflow-hidden bg-slate-950">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
-                  
-                  <span className="absolute top-4 left-4 rounded-full bg-slate-950/80 border border-white/20 px-3 py-1 text-[10px] font-bold text-cyan-300 uppercase tracking-wider backdrop-blur">
-                    {project.badge}
-                  </span>
+                <div>
+                  <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                    
+                    <span className="absolute top-4 left-4 rounded-full bg-slate-950/80 border border-white/20 px-3 py-1 text-[10px] font-bold text-cyan-300 uppercase tracking-wider backdrop-blur">
+                      {project.badge}
+                    </span>
+
+                    <button
+                      className="absolute bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 border border-white/20 text-white backdrop-blur group-hover:bg-cyan-400 group-hover:text-slate-950 transition"
+                      title="View Full Case Study & Gallery"
+                    >
+                      <FiMaximize2 className="text-sm" />
+                    </button>
+                  </div>
+
+                  <div className="p-6">
+                    <span className="text-xs font-mono text-cyan-400">{project.type}</span>
+                    <h3 className="mt-2 font-display text-2xl font-bold text-white group-hover:text-cyan-300 transition">
+                      {project.title}
+                    </h3>
+                    <p className="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-6">
-                  <span className="text-xs font-mono text-cyan-400">{project.type}</span>
-                  <h3 className="mt-2 font-display text-2xl font-bold text-white group-hover:text-cyan-300 transition">
-                    {project.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                {/* Tech Logos Row */}
+                <div className="px-6 pb-6 pt-2 border-t border-white/5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-950 px-3 py-1 text-xs text-slate-300"
+                    >
+                      <TechIcon name={tag} size="sm" showLabel={true} />
+                    </span>
+                  ))}
                 </div>
               </Motion.article>
             ))}
