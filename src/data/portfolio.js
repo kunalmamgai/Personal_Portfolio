@@ -34,6 +34,23 @@ export const socialLinks = [
   { label: 'Email', href: 'mailto:kunalmamgai@gmail.com', username: 'kunalmamgai@gmail.com' },
 ]
 
+export const stack = [
+  'HTML5',
+  'CSS3',
+  'JavaScript',
+  'React',
+  'Python',
+  'FastAPI',
+  'REST APIs',
+  'Backend Development',
+  'C++',
+  'DSA Practice',
+  'MERN Learning',
+  'Framer Motion',
+  'Git & GitHub',
+  'Adaptable Learning',
+]
+
 export const technicalJourney = [
   {
     year: '2023',

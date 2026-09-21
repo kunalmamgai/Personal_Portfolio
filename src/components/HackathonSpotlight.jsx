@@ -1,5 +1,5 @@
 import { motion as Motion } from 'framer-motion'
-import { FiAward, FiExternalLink, FiGithub, FiCheckCircle2, FiBox, FiCpu, FiServer } from 'react-icons/fi'
+import { FiAward, FiExternalLink, FiGithub, FiCheckCircle, FiBox, FiCpu, FiServer } from 'react-icons/fi'
 
 export default function HackathonSpotlight() {
   return (

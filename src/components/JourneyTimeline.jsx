@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion as Motion } from 'framer-motion'
-import { FiAward, FiCheckCircle2, FiCode, FiLayers, FiZap, FiBookOpen } from 'react-icons/fi'
+import { FiAward, FiCheckCircle, FiCode, FiLayers, FiZap, FiBookOpen } from 'react-icons/fi'
 import { technicalJourney } from '../data/portfolio'
 
 const categoryIcons = {
@@ -105,7 +105,7 @@ export default function JourneyTimeline() {
                       key={hIdx}
                       className="flex items-start gap-2.5 rounded-xl border border-white/5 bg-white/5 p-3 text-xs sm:text-sm text-slate-200"
                     >
-                      <FiCheckCircle2 className="mt-0.5 text-cyan-400 shrink-0" />
+                      <FiCheckCircle className="mt-0.5 text-cyan-400 shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
