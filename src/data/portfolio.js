@@ -2,30 +2,30 @@ import profileImage from '../assets/profile.jpeg'
 
 export const navigation = [
   { label: 'Journey', href: '#journey' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Hackathon', href: '#hackathon' },
-  { label: 'Process', href: '#process' },
+  { label: 'Simulation', href: '#simulation' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Hackathons', href: '#hackathon' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export const stats = [
-  { value: 'Full-Stack', label: 'React + FastAPI + MERN Stack' },
-  { value: 'Finalist', label: 'INNOVIT Hackathon Winner' },
+  { value: '3D & WebGL', label: 'Three.js & Digital Twin Simulation' },
+  { value: 'AI Agents', label: 'Razorpay AI Buildathon & Python' },
+  { value: 'Finalist', label: 'INNOVIT National Hackathon' },
   { value: 'C++ DSA', label: 'Algorithmic Problem Solver' },
-  { value: '100% Polish', label: 'Responsive UI/UX Craftsmanship' },
 ]
 
 export const developerProfile = {
   name: 'Kunal Mamgai',
-  role: 'Full-Stack Developer & UI/UX Specialist',
+  role: 'Full-Stack & WebGL Developer | Applied AI Systems',
   location: 'Haldwani, Uttarakhand, India',
   image: profileImage,
   alt: 'Portrait of Kunal Mamgai',
   intro:
-    'I build high-performance, visually stunning web applications with a focus on polished user experiences, scalable architecture, and end-to-end full-stack development.',
-  bio: 'From achieving top academic honors in Haldwani to competing as an INNOVIT Hackathon finalist with AR-Chaelogist, my journey is driven by relentless curiosity and a passion for engineering beautiful web experiences. I specialize in modern React ecosystems, FastAPI backends, C++ problem-solving, and building complete products from concept to deployment.',
+    'I architect immersive 3D digital twins, autonomous AI agent platforms, and high-performance full-stack web applications with Three.js, React, FastAPI, Python, and C++.',
+  bio: 'From achieving top academic honors in Haldwani to competing in national hackathons (INNOVIT Finalist with AR-Chaelogist, Razorpay AI Buildathon with Payment Risk Agent), I specialize in bridging high-fidelity 3D WebGL interfaces with intelligent backend services.',
 }
 
 export const socialLinks = [
@@ -35,26 +35,26 @@ export const socialLinks = [
 ]
 
 export const heroOrbiterLogos = [
+  { name: 'Three.js', color: '#FFFFFF' },
   { name: 'React', color: '#61DAFB' },
   { name: 'Python', color: '#3776AB' },
+  { name: 'FastAPI', color: '#009688' },
   { name: 'C++', color: '#00599C' },
   { name: 'Tailwind CSS', color: '#06B6D4' },
-  { name: 'FastAPI', color: '#009688' },
-  { name: 'JavaScript', color: '#F7DF1E' },
 ]
 
 export const stack = [
+  'Three.js',
+  'WebGL',
   'React',
   'Python',
-  'C++',
   'FastAPI',
+  'C++',
+  'AI Agent',
   'Tailwind CSS',
   'JavaScript',
-  'HTML5',
-  'CSS3',
   'Node.js',
   'MongoDB',
-  'Express',
   'Git',
   'GitHub',
   'Vercel',
@@ -73,11 +73,11 @@ export const technicalJourney = [
     category: 'Academic',
     badge: 'Topper Award',
     description:
-      'Scored top marks in CBSE Class 10th board exams, establishing a strong foundation in analytical logic, mathematics, and problem-solving.',
+      'Scored top marks in CBSE Class 10th board examinations, developing strong mathematical discipline, computational thinking, and analytical foundations.',
     highlights: [
       'Recognized as school topper for academic consistency',
       'Developed strong mathematical and logical foundations',
-      'Sparked enthusiasm for computer science and software development',
+      'Sparked enthusiasm for computer science, WebGL, and algorithms',
     ],
     accent: 'from-amber-500 to-orange-500',
   },
@@ -99,49 +99,49 @@ export const technicalJourney = [
   },
   {
     year: '2024',
-    phase: 'Frontend Mastery & Modern UI/UX',
-    title: 'Modern Web Engineering with React & Tailwind',
-    institution: 'Interactive Web Labs',
+    phase: 'Frontend Mastery & 3D WebGL',
+    title: 'Modern Web & Interactive Simulation Systems',
+    institution: 'PhysicsHub & Open Source Labs',
     category: 'Frontend',
-    badge: 'UI/UX Craftsman',
+    badge: 'WebGL Engineer',
     description:
-      'Transitioned into modern web development, mastering HTML5, CSS3, ES6+ JavaScript, React component design, and dynamic layout systems.',
+      'Engineered interactive physics visualizers (PhysicsHub) and modern React interfaces with Three.js, Canvas API, and Tailwind CSS.',
     highlights: [
-      'Engineered responsive, pixel-perfect user interfaces',
+      'Built PhysicsHub formula & particle simulation visualizer',
       'Mastered Tailwind CSS and Framer Motion micro-animations',
-      'Adopted design systems and reusable component architecture',
+      'Engineered responsive, 3D WebGL canvas rendering pipelines',
     ],
     accent: 'from-emerald-500 to-teal-500',
   },
   {
     year: '2024 - 2025',
-    phase: 'National Hackathon Success',
-    title: 'INNOVIT Hackathon Finalist — AR-Chaelogist',
-    institution: 'INNOVIT Tech Championship',
+    phase: 'National Hackathons & AI Engineering',
+    title: 'INNOVIT Finalist & Razorpay AI Buildathon',
+    institution: 'VIT Bhopal University & Hackathons',
     category: 'Hackathon',
-    badge: 'National Finalist',
+    badge: 'Hackathon Champion',
     description:
-      'Led the creation of AR-Chaelogist, an immersive AR/VR cultural heritage platform connecting users with historic Indian landmarks.',
+      'Led the creation of AR-Chaelogist (INNOVIT Finalist) and engineered the autonomous Payment Risk & Recovery AI Agent for the Razorpay AI Buildathon.',
     highlights: [
-      'Reached the national finals of the INNOVIT Hackathon',
-      'Architected React frontend with Python & FastAPI backend endpoints',
-      'Deployed production apps seamlessly to Vercel and Render',
+      'Reached the national finals of INNOVIT with AR-Chaelogist',
+      'Built autonomous payment risk reasoning agent with Python for Razorpay',
+      'Architected SURYA: Hybrid Renewable VPP 3D Digital Twin',
     ],
     accent: 'from-purple-500 to-pink-500',
   },
   {
     year: '2025 - Present',
-    phase: 'Full-Stack & Cloud Integration',
-    title: 'Full-Stack Expansion (FastAPI + MERN)',
-    institution: 'Production System Building',
+    phase: 'Full-Stack 3D Digital Twins & Applied AI',
+    title: 'Full-Stack WebGL & AI Agent Platforms',
+    institution: 'Advanced Systems Building',
     category: 'Full-Stack',
-    badge: 'Full-Stack Engineer',
+    badge: 'Full-Stack 3D Engineer',
     description:
-      'Expanding into complete full-stack web product development, combining React frontends with FastAPI, Python backends, Node.js microservices, and MongoDB.',
+      'Developing production-grade 3D digital twins, virtual power plants (SURYA), autonomous AI agents, and scalable FastAPI backend services.',
     highlights: [
-      'Designing RESTful APIs with FastAPI and Python',
-      'Learning MERN stack backend integration and database modeling',
-      'Focusing on performance optimization, clean code, and UI polish',
+      'Engineered live 3D campus digital twin simulation with Three.js',
+      'Designing robust RESTful microservices with FastAPI and Python',
+      'Deploying full-stack cloud applications to Vercel and Render',
     ],
     accent: 'from-blue-500 to-indigo-500',
   },
@@ -149,38 +149,38 @@ export const technicalJourney = [
 
 export const skillCategories = [
   {
-    id: 'frontend',
-    title: 'Frontend Architecture',
-    description: 'Building modern, high-performance, responsive interfaces with precise micro-interactions.',
+    id: '3d-frontend',
+    title: '3D & Frontend Architecture',
+    description: 'High-fidelity WebGL 3D graphics, Three.js scenes, React component systems, and fluid animations.',
     color: 'cyan',
     skills: [
-      { name: 'React', level: 92, tag: 'Core Stack' },
-      { name: 'JavaScript', level: 90, tag: 'Language' },
+      { name: 'Three.js', level: 90, tag: '3D WebGL' },
+      { name: 'React', level: 94, tag: 'Core Stack' },
+      { name: 'WebGL', level: 86, tag: 'Graphics' },
       { name: 'Tailwind CSS', level: 95, tag: 'Styling' },
-      { name: 'HTML5', level: 96, tag: 'Foundations' },
-      { name: 'CSS3', level: 95, tag: 'Styling' },
-      { name: 'Framer Motion', level: 88, tag: 'Animations' },
-      { name: 'Responsive Design', level: 95, tag: 'UX' },
+      { name: 'JavaScript', level: 92, tag: 'Language' },
+      { name: 'Framer Motion', level: 90, tag: 'Animations' },
+      { name: 'Physics Simulation', level: 88, tag: 'Canvas API' },
     ],
   },
   {
-    id: 'backend',
-    title: 'Backend & APIs',
-    description: 'Architecting robust server-side APIs, database structures, and backend services.',
+    id: 'backend-ai',
+    title: 'Backend & Applied AI',
+    description: 'Autonomous AI agents, Python FastAPI microservices, and database modeling.',
     color: 'orange',
     skills: [
-      { name: 'Python', level: 88, tag: 'Language' },
-      { name: 'FastAPI', level: 85, tag: 'Framework' },
-      { name: 'Node.js', level: 80, tag: 'MERN Stack' },
-      { name: 'Express', level: 80, tag: 'Server' },
-      { name: 'MongoDB', level: 78, tag: 'Database' },
-      { name: 'RESTful APIs', level: 90, tag: 'Architecture' },
+      { name: 'Python', level: 90, tag: 'Language' },
+      { name: 'FastAPI', level: 88, tag: 'Framework' },
+      { name: 'AI Agent', level: 86, tag: 'Autonomous AI' },
+      { name: 'Node.js', level: 82, tag: 'MERN Stack' },
+      { name: 'MongoDB', level: 80, tag: 'Database' },
+      { name: 'RESTful APIs', level: 92, tag: 'Architecture' },
     ],
   },
   {
     id: 'problem-solving',
     title: 'Core CS & Logic',
-    description: 'Solving complex computational problems with optimized algorithmic performance.',
+    description: 'Algorithmic optimization, memory safety, and high-performance computing in C++.',
     color: 'emerald',
     skills: [
       { name: 'C++', level: 88, tag: 'Language' },
@@ -190,14 +190,14 @@ export const skillCategories = [
   },
   {
     id: 'tools',
-    title: 'Tools & Ecosystem',
-    description: 'Modern development environment, version control, and cloud hosting workflows.',
+    title: 'Tools & DevOps',
+    description: 'Modern development workflows, version control, and continuous cloud deployment.',
     color: 'purple',
     skills: [
       { name: 'Git', level: 92, tag: 'Version Control' },
-      { name: 'GitHub', level: 92, tag: 'Collaboration' },
-      { name: 'Vite', level: 90, tag: 'Build Tool' },
-      { name: 'Vercel', level: 88, tag: 'Deployment' },
+      { name: 'GitHub', level: 94, tag: 'Collaboration' },
+      { name: 'Vite', level: 92, tag: 'Build Tool' },
+      { name: 'Vercel', level: 90, tag: 'Deployment' },
       { name: 'Postman', level: 88, tag: 'API Testing' },
     ],
   },
@@ -205,29 +205,87 @@ export const skillCategories = [
 
 export const featuredSkills = [
   {
-    title: 'Responsive UI Engineering',
+    title: '3D WebGL & Digital Twins',
     description:
-      'Building adaptive layouts that scale effortlessly from mobile screens to ultra-wide desktop monitors with zero visual hierarchy breakdown.',
+      'Crafting interactive 3D digital twins, procedural particle canvases, and Three.js environments with smooth 60fps GPU performance.',
   },
   {
-    title: 'Design Token Systems',
+    title: 'Autonomous AI Agent Systems',
     description:
-      'Translating UI wireframes into reusable component libraries with unified spacing, typography, glassmorphism, and color system tokens.',
+      'Engineering policy-gated AI agents that analyze complex financial transactions, explain risk in plain language, and automate mitigation.',
   },
   {
     title: 'Full-Stack API Integration',
     description:
-      'Connecting dynamic React frontends with high-speed Python FastAPI endpoints, asynchronous data fetching, and clean state handling.',
+      'Connecting dynamic React/3D frontends with high-speed Python FastAPI endpoints, asynchronous data pipelines, and clean state handling.',
   },
 ]
 
 export const projects = [
   {
+    id: 'surya-vpp',
+    title: 'SURYA: Hybrid Renewable VPP & 3D Digital Twin',
+    type: '3D Digital Twin & CleanTech Platform',
+    category: 'Full-Stack',
+    badge: '3D Simulation',
+    description:
+      'SURYA is a Hybrid Renewable Virtual Power Plant (VPP) platform featuring a live 3D digital twin of the VIT Bhopal campus with real-time solar/wind simulations, weather modeling, and power grid dispatch.',
+    image:
+      'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80',
+    ],
+    outcome:
+      'Built a full interactive campus simulator with live 3D buildings, dynamic weather toggles, battery charge states, and clean power distribution telemetry.',
+    features: [
+      'Interactive 3D digital twin campus simulator built with Three.js & WebGL',
+      'Real-time power dispatch telemetry between solar arrays & battery storage',
+      'Dynamic weather system (sunny, overcast, rain) altering energy yield',
+      'Full-stack architecture with React dashboard and analytical telemetry',
+    ],
+    tags: ['Three.js', 'WebGL', '3D Digital Twin', 'React', 'JavaScript', 'Tailwind CSS'],
+    role: 'Lead 3D & Full-Stack Developer',
+    github: 'https://github.com/kunalmamgai/Hybrid-Renewable-VPP',
+    demo: '#',
+    highlight: true,
+  },
+  {
+    id: 'razorpay-agent',
+    title: 'Razorpay AI Payment Risk & Recovery Agent',
+    type: 'Razorpay AI Buildathon Project',
+    category: 'Hackathon',
+    badge: 'AI Buildathon',
+    description:
+      'An autonomous AI-powered payment risk & recovery agent built for the Razorpay AI Buildathon. It analyzes failed and flagged transactions, explains risk in plain language, and applies policy-gated decisions (allow / review / block).',
+    image:
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80',
+    ],
+    outcome:
+      'Created an intelligent FinTech recovery pipeline reducing false payment declines while protecting merchants against synthetic identity fraud.',
+    features: [
+      'AI reasoning agent analyzing transaction anomalies & velocity checks',
+      'Plain-language risk breakdown with actionable merchant recommendations',
+      'Policy-gated decision engine (Allow, Review, Retry, Block)',
+      'Built with Python, FastAPI backend, and Razorpay payment webhook simulator',
+    ],
+    tags: ['Python', 'AI Agent', 'FastAPI', 'FinTech', 'RESTful APIs'],
+    role: 'AI System Architect & Backend Developer',
+    github: 'https://github.com/kunalmamgai/Razorpay-Buildathon',
+    demo: '#',
+    highlight: true,
+  },
+  {
     id: 'archaelogist',
-    title: 'AR-Chaelogist',
+    title: 'AR-Chaelogist: AR/VR Heritage & Culture Portal',
     type: 'INNOVIT Hackathon Finalist Project',
     category: 'Hackathon',
-    badge: 'Award Winner',
+    badge: 'National Finalist',
     description:
       'An immersive AR/VR web platform built to give users interactive virtual tours of historic Indian heritage sites and cultural landmarks before visiting in person.',
     image:
@@ -236,10 +294,9 @@ export const projects = [
       'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
     ],
     outcome:
-      'Reached the National Finals at the INNOVIT Hackathon, receiving high praise for cultural impact, smooth AR integration, and full-stack architecture.',
+      'Reached the National Finals at the INNOVIT Hackathon, receiving high praise for cultural storytelling, smooth AR integration, and full-stack architecture.',
     features: [
       'Interactive 3D / AR model viewer for historical artifacts',
       'Virtual walkthrough tours with audio-guided storytelling',
@@ -253,83 +310,83 @@ export const projects = [
     highlight: true,
   },
   {
-    id: 'portfolio-masterpiece',
-    title: 'Interactive Portfolio Masterpiece',
-    type: 'Personal Developer Showcase',
-    category: 'Full-Stack',
-    badge: 'Featured',
+    id: 'physicshub',
+    title: 'PhysicsHub: Interactive WebGL Physics Visualizer',
+    type: 'Interactive Physics Simulation Platform',
+    category: 'Frontend',
+    badge: 'Simulation',
     description:
-      'An award-grade personal developer portfolio featuring an interactive shell terminal, command palette (Cmd+K), particle mesh background, and visual journey timeline.',
+      'A free open-source interactive physics visualization platform helping students and developers explore kinematics, wave mechanics, gravitational fields, and particle dynamics through real-time canvas simulations.',
     image:
-      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80',
     ],
     outcome:
-      'Designed to represent my technical identity, learning journey, and UI/UX engineering standards in an unforgettable interactive experience.',
+      'Provides intuitive, interactive visualization of mathematical and physical formulas using GPU-accelerated HTML5 Canvas and WebGL.',
     features: [
-      'Interactive Command Shell (`Cmd+K`) for rapid navigation',
-      'Built-in retro CLI terminal with executable commands',
-      'Visual timeline detailing my complete learning roadmap',
-      'Ambient HTML5 particle grid background canvas',
+      'Real-time numerical integrator for gravitational attractors & velocity fields',
+      'Customizable physics parameter sliders (mass, friction, elasticity, wave speed)',
+      'Clean interactive canvas UI with dark theme glassmorphism',
     ],
-    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite', 'HTML5 Canvas'],
-    role: 'UI/UX Engineer & Developer',
-    github: 'https://github.com/kunalmamgai',
-    demo: '#',
-    highlight: true,
+    tags: ['JavaScript', 'WebGL', 'Physics Simulation', 'Canvas API'],
+    role: 'Creator & Lead Developer',
+    github: 'https://github.com/kunalmamgai/physicshub.github.io',
+    demo: 'https://kunalmamgai.github.io/physicshub.github.io',
+    highlight: false,
   },
   {
-    id: 'studio-canvas',
-    title: 'Studio Canvas',
-    type: 'Creative Agency Landing Page',
-    category: 'Frontend',
-    badge: 'UI Showcase',
+    id: 'hackmatrix-ewaste',
+    title: 'HackMatrix: Smart AI E-Waste Recycling Hub',
+    type: 'HackMatrix Hackathon by Linpack Club',
+    category: 'Hackathon',
+    badge: 'AI & GreenTech',
     description:
-      'A sleek, high-impact agency landing page built with editorial typography, glassmorphism visual layers, and physics-based motion reveals.',
+      'An intelligent platform created for the HackMatrix Hackathon to tackle the electronic waste crisis by providing AI-driven e-waste classification, recycling drop-off navigation, and eco-credit rewards.',
     image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
     ],
-    outcome: 'Delivered maximum visual memory for brand presentation while maintaining 60fps scroll performance.',
+    outcome:
+      'Designed and presented a working prototype connecting electronics owners with verified recycling centers through automated category detection.',
     features: [
-      'Editorial typography & dynamic hero section layout',
-      'Smooth entrance reveals powered by Framer Motion',
-      'Interactive service grid with glass hover reflections',
+      'AI-assisted e-waste component classifier and toxicity rating',
+      'Geolocation lookup for closest verified e-waste disposal bins',
+      'Eco-rewards ledger incentivizing sustainable recycling',
     ],
-    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
-    role: 'Frontend Developer',
-    github: 'https://github.com/kunalmamgai',
+    tags: ['JavaScript', 'React', 'AI/ML', 'RESTful APIs', 'Tailwind CSS'],
+    role: 'Frontend & Full-Stack Developer',
+    github: 'https://github.com/kunalmamgai/HackMatrix_AI-Alchemists',
     demo: '#',
     highlight: false,
   },
   {
-    id: 'devconnect-mern',
-    title: 'DevConnect MERN Hub',
-    type: 'Full-Stack Microservice Portal',
+    id: 'vityarthi-ai',
+    title: 'Vityarthi AI/ML Engine',
+    type: 'Machine Learning Academic Platform',
     category: 'Full-Stack',
-    badge: 'Backend Learning',
+    badge: 'Machine Learning',
     description:
-      'A full-stack social portal for developers to showcase projects, share tech stacks, and collaborate through structured REST API services.',
+      'An applied AI/ML system built for student campus workflows, automated academic performance prediction, and personalized study trajectory recommendations.',
     image:
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
     ],
-    outcome: 'Demonstrates end-to-end full-stack capabilities, token authentication, and clean API structure.',
+    outcome:
+      'Implemented predictive machine learning models with Python pipelines and clean RESTful API integration.',
     features: [
-      'JWT User Authentication & Session Management',
-      'REST API endpoints for user profiles & project posts',
-      'MongoDB data modeling and indexing',
+      'Predictive analytics regression & classification models',
+      'FastAPI microservice endpoints serving inferences in sub-50ms',
+      'Interactive student analytics dashboard',
     ],
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'RESTful APIs'],
-    role: 'Full-Stack Developer',
-    github: 'https://github.com/kunalmamgai',
+    tags: ['Python', 'AI/ML', 'FastAPI', 'PyTorch', 'RESTful APIs'],
+    role: 'ML Developer',
+    github: 'https://github.com/kunalmamgai/Vityarthi-AI_ML-PROJECT',
     demo: '#',
     highlight: false,
   },
@@ -338,52 +395,40 @@ export const projects = [
 export const processSteps = [
   {
     step: '01',
-    title: 'Discovery & UX Intent',
+    title: 'Mathematical & System Design',
     description:
-      'I analyze user flows, content hierarchy, and technical requirements before writing a single line of code.',
+      'I structure computational physics formulas, 3D geometry coordinates, and AI agent policy boundaries before writing code.',
   },
   {
     step: '02',
-    title: 'Modular System Building',
+    title: 'Modular 3D & Component Building',
     description:
-      'I build reusable React components with clear props, design tokens, and clean separation of concerns.',
+      'I build reusable Three.js scenes, React components, and shaders with strict performance and frame budget constraints.',
   },
   {
     step: '03',
-    title: 'API & State Integration',
+    title: 'FastAPI & AI Agent Integration',
     description:
-      'I bridge frontend views with FastAPI or Node.js backends using predictable async data fetching and state logic.',
+      'I connect frontends with high-speed Python FastAPI backends, AI reasoning pipelines, and real-time telemetry.',
   },
   {
     step: '04',
-    title: 'Performance & Micro-Polish',
+    title: 'GPU Polish & 60fps Optimization',
     description:
-      'I optimize bundle sizes, touch targets, keyboard navigation, and responsive behavior for seamless performance across devices.',
-  },
-]
-
-export const gallery = [
-  {
-    src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
-    alt: 'UI Developer Workspace Setup',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
-    alt: 'Dashboard analytics and code inspector',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=80',
-    alt: 'Modern full-stack coding environment',
+      'I optimize draw calls, buffer geometries, responsive breakpoints, and tactile audio micro-interactions for an unforgettable experience.',
   },
 ]
 
 export const terminalCommands = {
-  help: 'Available commands: whoami, journey, skills, projects, hackathon, contact, github, linkedin, clear',
-  whoami: 'Kunal Mamgai — Full-Stack Developer & UI/UX Specialist based in Haldwani, Uttarakhand. CBSE 10th Topper & INNOVIT Hackathon Finalist.',
-  journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: React & Tailwind -> 2024-25: INNOVIT Hackathon Finalist (AR-Chaelogist) -> Present: Full-Stack (FastAPI + MERN)',
-  skills: 'Frontend: React, Tailwind CSS, JS, Framer Motion | Backend: Python, FastAPI, Node.js, Express, MongoDB | CS: C++, Data Structures & Algorithms',
-  projects: '1. AR-Chaelogist (INNOVIT Finalist) | 2. Personal Portfolio Masterpiece | 3. Studio Canvas | 4. DevConnect MERN Hub',
-  hackathon: 'Finalist at INNOVIT Hackathon with AR-Chaelogist: An immersive AR/VR portal for Indian heritage & culture (React + FastAPI + Python + Render/Vercel).',
+  help: 'Available commands: whoami, journey, skills, projects, surya, razorpay, hackathon, simulation, contact, github, linkedin, clear',
+  whoami: 'Kunal Mamgai — Full-Stack & WebGL Developer. Builder of 3D digital twins (SURYA), autonomous AI agents (Razorpay AI Buildathon), and INNOVIT Finalist (AR-Chaelogist).',
+  journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: 3D WebGL & PhysicsHub -> 2024-25: INNOVIT Finalist (AR-Chaelogist) & Razorpay AI Agent -> Present: SURYA 3D Digital Twin & Full-Stack',
+  skills: '3D/Graphics: Three.js, WebGL, Canvas API | Frontend: React, Tailwind CSS, JS, Framer Motion | Backend & AI: Python, FastAPI, AI Agents, Node.js, MongoDB | CS: C++, DSA',
+  projects: '1. SURYA: Hybrid Renewable VPP 3D Digital Twin | 2. Razorpay AI Payment Risk Agent | 3. AR-Chaelogist (INNOVIT Finalist) | 4. PhysicsHub Visualizer | 5. HackMatrix E-Waste | 6. Vityarthi AI/ML',
+  surya: 'SURYA: Hybrid Renewable VPP platform with live 3D Digital Twin of VIT Bhopal campus (Three.js + WebGL + React + CleanTech). Repo: github.com/kunalmamgai/Hybrid-Renewable-VPP',
+  razorpay: 'Razorpay AI Buildathon: Autonomous payment risk & recovery agent analyzing transaction anomalies with policy-gated decisions. Repo: github.com/kunalmamgai/Razorpay-Buildathon',
+  hackathon: 'INNOVIT Hackathon Finalist (AR-Chaelogist) + Razorpay AI Buildathon (Payment Risk Agent) + HackMatrix (AI E-Waste Hub).',
+  simulation: 'Launching interactive particle physics simulator! Scroll to #simulation section to interact with force fields.',
   contact: 'Email: kunalmamgai@gmail.com | GitHub: github.com/kunalmamgai | LinkedIn: linkedin.com/in/kunal-mamgai-777k/',
   github: 'Opening GitHub profile: https://github.com/kunalmamgai',
   linkedin: 'Opening LinkedIn profile: https://www.linkedin.com/in/kunal-mamgai-777k/',
