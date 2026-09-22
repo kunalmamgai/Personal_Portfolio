@@ -12,6 +12,10 @@ import {
   FiCopy,
   FiMapPin,
   FiMaximize2,
+  FiVolume2,
+  FiVolumeX,
+  FiActivity,
+  FiBox,
 } from 'react-icons/fi'
 import {
   developerProfile,
@@ -24,7 +28,9 @@ import {
   heroOrbiterLogos,
 } from './data/portfolio'
 
-import BackgroundCanvas from './components/BackgroundCanvas'
+import WebGLScene from './components/WebGLScene'
+import Hero3DCanvas from './components/Hero3DCanvas'
+import PhysicsSimulator from './components/PhysicsSimulator'
 import Toast from './components/Toast'
 import TerminalModal from './components/TerminalModal'
 import CommandPalette from './components/CommandPalette'
@@ -33,6 +39,7 @@ import SkillsMatrix from './components/SkillsMatrix'
 import ProjectModal from './components/ProjectModal'
 import HackathonSpotlight from './components/HackathonSpotlight'
 import TechIcon from './components/TechIcon'
+import { audio } from './utils/AudioEffects'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -45,9 +52,11 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [projectFilter, setProjectFilter] = useState('All')
   const [toastMessage, setToastMessage] = useState('')
+  const [isMuted, setIsMuted] = useState(false)
 
   const showToast = (msg) => {
     setToastMessage(msg)
+    audio.playChime()
     setTimeout(() => setToastMessage(''), 3500)
   }
 
@@ -56,14 +65,25 @@ export default function App() {
     showToast('Email address copied to clipboard!')
   }
 
+  const toggleAudio = () => {
+    const muted = audio.toggleMute()
+    setIsMuted(muted)
+    if (!muted) {
+      audio.playChime()
+      showToast('Cyber Audio FX Enabled ⚡')
+    } else {
+      showToast('Audio FX Muted')
+    }
+  }
+
   const filteredProjects = projectFilter === 'All'
     ? projects
     : projects.filter((p) => p.category === projectFilter)
 
   return (
     <div className="relative min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-white">
-      {/* Interactive Background Grid */}
-      <BackgroundCanvas />
+      {/* 3D WebGL Three.js Reactive Background Scene */}
+      <WebGLScene />
 
       {/* Toast Notification System */}
       <Toast message={toastMessage} onClose={() => setToastMessage('')} />
@@ -78,10 +98,13 @@ export default function App() {
       <CommandPalette
         isOpen={isPaletteOpen}
         onClose={() => setIsPaletteOpen(false)}
-        onOpenTerminal={() => setIsTerminalOpen(true)}
+        onOpenTerminal={() => {
+          setIsTerminalOpen(true)
+          audio.playWarp()
+        }}
       />
 
-      {/* Project Case Study Modal */}
+      {/* Project Case Study Modal with Full-Width Carousel */}
       <ProjectModal
         project={selectedProject}
         isOpen={Boolean(selectedProject)}
@@ -92,7 +115,11 @@ export default function App() {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/70 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           {/* Brand Mark */}
-          <a href="#home" className="flex items-center gap-3 text-white group">
+          <a
+            href="#home"
+            onMouseEnter={() => audio.playHover()}
+            className="flex items-center gap-3 text-white group"
+          >
             <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-cyan-400/40 bg-slate-900 shadow-[0_4px_20px_rgba(34,211,238,0.25)] group-hover:scale-105 transition">
               <span className="font-display font-black text-sm text-cyan-300">KM</span>
             </span>
@@ -105,6 +132,8 @@ export default function App() {
               <a
                 key={item.href}
                 href={item.href}
+                onMouseEnter={() => audio.playHover()}
+                onClick={() => audio.playClick()}
                 className="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-cyan-300 transition"
               >
                 {item.label}
@@ -114,8 +143,21 @@ export default function App() {
 
           {/* Quick Action Controls */}
           <div className="flex items-center gap-3">
+            {/* Audio Toggle Button */}
             <button
-              onClick={() => setIsPaletteOpen(true)}
+              onClick={toggleAudio}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-cyan-400/40 hover:text-cyan-300 transition"
+              title={isMuted ? 'Unmute Audio FX' : 'Mute Audio FX'}
+            >
+              {isMuted ? <FiVolumeX className="text-sm" /> : <FiVolume2 className="text-sm text-cyan-400" />}
+            </button>
+
+            <button
+              onClick={() => {
+                setIsPaletteOpen(true)
+                audio.playClick()
+              }}
+              onMouseEnter={() => audio.playHover()}
               className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300 hover:border-cyan-400/30 hover:text-white transition"
               title="Command Palette (Cmd+K)"
             >
@@ -124,7 +166,11 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setIsTerminalOpen(true)}
+              onClick={() => {
+                setIsTerminalOpen(true)
+                audio.playWarp()
+              }}
+              onMouseEnter={() => audio.playHover()}
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-xs font-bold text-cyan-200 hover:border-cyan-300 hover:bg-cyan-300/20 transition shadow-[0_0_15px_rgba(34,211,238,0.2)]"
             >
               <FiTerminal />
@@ -136,8 +182,8 @@ export default function App() {
 
       {/* Main Content Area */}
       <main id="home" className="relative z-10">
-        {/* HERO SECTION WITH FLOATING TECH ORBITERS */}
-        <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:pb-28 lg:pt-24 items-center">
+        {/* HERO SECTION WITH 3D WEBGL CORE & FLOATING ORBITERS */}
+        <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-28 lg:pt-20 items-center">
           <Motion.div
             initial="hidden"
             animate="visible"
@@ -147,23 +193,24 @@ export default function App() {
             {/* Status Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold text-cyan-200 mb-6">
               <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-              <span>INNOVIT Hackathon Finalist & Full-Stack Developer</span>
+              <span>Full-Stack 3D WebGL & Applied AI Systems Engineer</span>
             </div>
 
             <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
-              Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400">Full-Stack</span> Web Masterpieces
+              Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400">3D WebGL</span> & Autonomous AI Platforms
             </h1>
 
             <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-300">
-              {developerProfile.intro} Building with modern React, FastAPI, Python, C++ DSA, and Tailwind CSS.
+              {developerProfile.intro} Creator of <strong>SURYA 3D Digital Twin</strong>, <strong>Razorpay AI Risk Agent</strong>, and <strong>AR-Chaelogist</strong>.
             </p>
 
-            {/* Tech Badges Row */}
+            {/* Tech Badges Row with Logos */}
             <div className="mt-6 flex flex-wrap gap-2.5">
               {heroOrbiterLogos.map((tech) => (
                 <span
                   key={tech.name}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-md"
+                  onMouseEnter={() => audio.playHover()}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-md hover:border-cyan-400/40 transition"
                 >
                   <TechIcon name={tech.name} size="sm" showLabel={true} />
                 </span>
@@ -174,10 +221,19 @@ export default function App() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#projects"
+                onClick={() => audio.playClick()}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition shadow-[0_4px_20px_rgba(34,211,238,0.4)]"
               >
-                <span>Explore Visual Projects</span>
+                <span>Explore 3D Projects</span>
                 <FiArrowRight />
+              </a>
+              <a
+                href="#simulation"
+                onClick={() => audio.playClick()}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-3.5 text-sm font-semibold text-cyan-200 hover:bg-cyan-400/20 transition"
+              >
+                <FiActivity className="text-cyan-400" />
+                <span>Launch Physics Lab</span>
               </a>
               <button
                 onClick={copyEmail}
@@ -193,7 +249,7 @@ export default function App() {
               {stats.map((st) => (
                 <div
                   key={st.label}
-                  className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-md"
+                  className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-md hover:border-cyan-400/30 transition"
                 >
                   <p className="font-display text-lg sm:text-xl font-bold text-cyan-300">{st.value}</p>
                   <p className="mt-1 text-xs text-slate-400 leading-snug">{st.label}</p>
@@ -202,46 +258,26 @@ export default function App() {
             </div>
           </Motion.div>
 
-          {/* Profile Visual Card with Floating Logo Orbiters */}
+          {/* Profile Visual Card with 3D Gyroscope Canvas */}
           <Motion.div
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.7, delay: 0.15 }}
             variants={fadeUp}
-            className="relative"
+            className="relative flex flex-col items-center"
           >
-            {/* Floating Orbiting Tech Badges */}
-            <Motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-6 -left-6 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-cyan-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(34,211,238,0.3)] backdrop-blur-md"
-            >
-              <TechIcon name="React" size="md" showLabel={true} />
-            </Motion.div>
-
-            <Motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute top-1/3 -right-6 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-amber-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(245,158,11,0.3)] backdrop-blur-md"
-            >
-              <TechIcon name="Python" size="md" showLabel={true} />
-            </Motion.div>
-
-            <Motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-6 left-1/4 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-blue-400/40 bg-slate-950/90 px-4 py-2.5 shadow-[0_10px_30px_rgba(59,130,246,0.3)] backdrop-blur-md"
-            >
-              <TechIcon name="C++" size="md" showLabel={true} />
-            </Motion.div>
+            {/* Interactive 3D Gyroscope Canvas */}
+            <div className="relative mb-6 rounded-3xl border border-cyan-400/30 bg-slate-900/60 p-2 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
+              <Hero3DCanvas />
+            </div>
 
             {/* Profile Photo Card */}
-            <div className="relative overflow-hidden rounded-[2.2rem] border border-cyan-400/30 bg-slate-900/80 p-4 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
+            <div className="relative w-full max-w-md overflow-hidden rounded-[2.2rem] border border-cyan-400/30 bg-slate-900/80 p-4 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
               <div className="relative overflow-hidden rounded-[1.6rem]">
                 <img
                   src={developerProfile.image}
                   alt={developerProfile.alt}
-                  className="h-[26rem] w-full object-cover object-top saturate-110"
+                  className="h-64 sm:h-72 w-full object-cover object-top saturate-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
                 
@@ -265,68 +301,30 @@ export default function App() {
         {/* TECHNICAL JOURNEY SECTION */}
         <JourneyTimeline />
 
-        {/* ABOUT & PHILOSOPHY SECTION */}
-        <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <Motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            variants={fadeUp}
-            className="rounded-[2.5rem] border border-white/10 bg-slate-900/50 p-8 sm:p-12 backdrop-blur-xl"
-          >
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-center">
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                  Engineering Mindset
-                </span>
-                <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-white">
-                  Crafting code that scales and interfaces that inspire.
-                </h2>
-                <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                  {developerProfile.bio}
-                </p>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
-                {featuredSkills.map((sk) => (
-                  <div
-                    key={sk.title}
-                    className="rounded-2xl border border-white/10 bg-slate-950/80 p-5"
-                  >
-                    <h3 className="font-display font-bold text-base text-white">{sk.title}</h3>
-                    <p className="mt-2 text-xs text-slate-400 leading-relaxed">{sk.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Motion.div>
-        </section>
-
-        {/* SKILLS MATRIX SECTION */}
-        <SkillsMatrix />
-
-        {/* PROJECTS SHOWCASE SECTION */}
+        {/* PROJECTS SHOWCASE SECTION (FEATURING REAL GITHUB REPOSITORIES) */}
         <section id="projects" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                Full-Width Visual Work
+                GitHub Repositories & Real Systems
               </span>
               <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                Projects Showcase
+                Featured Projects Showcase
               </h2>
               <p className="mt-4 max-w-xl text-base text-slate-300">
-                Click any project card to view full-size multi-screenshot carousels and architecture details.
+                Live 3D Digital Twins, autonomous AI risk agents, AR/VR platforms, and physics simulators directly from my GitHub. Click any card to open full-width screenshot carousels and repository details.
               </p>
             </div>
 
             {/* Filter Pills */}
             <div className="flex flex-wrap gap-2">
-              {['All', 'Hackathon', 'Full-Stack', 'Frontend'].map((category) => (
+              {['All', 'Full-Stack', 'Hackathon', 'Frontend'].map((category) => (
                 <button
                   key={category}
-                  onClick={() => setProjectFilter(category)}
+                  onClick={() => {
+                    setProjectFilter(category)
+                    audio.playClick()
+                  }}
                   className={`rounded-full px-4 py-2 text-xs font-medium transition ${
                     projectFilter === category
                       ? 'bg-cyan-400 text-slate-950 font-bold shadow-[0_4px_15px_rgba(34,211,238,0.4)]'
@@ -340,7 +338,7 @@ export default function App() {
           </div>
 
           {/* Projects Grid with Full-Width Visual Screenshots */}
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, idx) => (
               <Motion.article
                 key={project.id}
@@ -348,11 +346,14 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => {
+                  setSelectedProject(project)
+                  audio.playWarp()
+                }}
                 className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 backdrop-blur-xl hover:border-cyan-400/40 transition duration-300 shadow-[0_16px_40px_rgba(2,6,23,0.6)] flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                  <div className="relative h-56 w-full overflow-hidden bg-slate-950">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -374,33 +375,90 @@ export default function App() {
 
                   <div className="p-6">
                     <span className="text-xs font-mono text-cyan-400">{project.type}</span>
-                    <h3 className="mt-2 font-display text-2xl font-bold text-white group-hover:text-cyan-300 transition">
+                    <h3 className="mt-2 font-display text-xl font-bold text-white group-hover:text-cyan-300 transition">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-2">
+                    <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Tech Logos Row */}
-                <div className="px-6 pb-6 pt-2 border-t border-white/5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-950 px-3 py-1 text-xs text-slate-300"
-                    >
-                      <TechIcon name={tag} size="sm" showLabel={true} />
+                {/* Tech Logos & Links Row */}
+                <div className="px-6 pb-6 pt-2 border-t border-white/5 flex flex-col gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-950 px-2.5 py-1 text-[11px] text-slate-300"
+                      >
+                        <TechIcon name={tag} size="sm" showLabel={true} />
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs text-cyan-300 pt-1">
+                    <span className="font-semibold group-hover:underline flex items-center gap-1">
+                      View 3D Case Study <FiArrowRight />
                     </span>
-                  ))}
+                    {project.github && (
+                      <span className="text-slate-400 flex items-center gap-1">
+                        <FiGithub /> GitHub
+                      </span>
+                    )}
+                  </div>
                 </div>
               </Motion.article>
             ))}
           </div>
         </section>
 
+        {/* INTERACTIVE WEBGL PHYSICS SIMULATION LAB */}
+        <PhysicsSimulator />
+
         {/* HACKATHON FEATURE SPOTLIGHT */}
         <HackathonSpotlight />
+
+        {/* SKILLS MATRIX SECTION */}
+        <SkillsMatrix />
+
+        {/* ABOUT & PHILOSOPHY SECTION */}
+        <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          <Motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            variants={fadeUp}
+            className="rounded-[2.5rem] border border-white/10 bg-slate-900/50 p-8 sm:p-12 backdrop-blur-xl"
+          >
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-center">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
+                  Engineering Philosophy
+                </span>
+                <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-white">
+                  Bridging complex computation with stunning visual artistry.
+                </h2>
+                <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                  {developerProfile.bio}
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {featuredSkills.map((sk) => (
+                  <div
+                    key={sk.title}
+                    className="rounded-2xl border border-white/10 bg-slate-950/80 p-5"
+                  >
+                    <h3 className="font-display font-bold text-base text-white">{sk.title}</h3>
+                    <p className="mt-2 text-xs text-slate-400 leading-relaxed">{sk.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Motion.div>
+        </section>
 
         {/* WORK PROCESS SECTION */}
         <section id="process" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
@@ -410,7 +468,7 @@ export default function App() {
                 Engineering Workflow
               </span>
               <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-white">
-                How I Build Software Products
+                How I Architect High-End Software Products
               </h2>
             </div>
 
@@ -446,16 +504,17 @@ export default function App() {
                   Let&apos;s Build Together
                 </span>
                 <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-                  Interested in building extraordinary web projects?
+                  Ready to collaborate on high-performance 3D & full-stack systems?
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm sm:text-base text-slate-300">
-                  Whether you have a full-stack web project, hackathon collaboration, or engineering role, I am excited to connect!
+                  Whether you have an applied AI system, 3D WebGL digital twin, hackathon team, or software engineering opportunity, let&apos;s build something extraordinary!
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="mailto:kunalmamgai@gmail.com"
+                  onClick={() => audio.playClick()}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition shadow-[0_4px_20px_rgba(34,211,238,0.4)]"
                 >
                   <FiMail />
@@ -479,6 +538,7 @@ export default function App() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => audio.playClick()}
                   className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-slate-200 hover:border-cyan-400/40 hover:text-white transition"
                 >
                   {link.label === 'GitHub' && <FiGithub className="text-cyan-400 text-sm" />}
@@ -491,7 +551,7 @@ export default function App() {
           </Motion.div>
 
           <footer className="mt-12 text-center text-xs text-slate-500 font-mono">
-            © {new Date().getFullYear()} Kunal Mamgai. Built with React 19, Tailwind CSS v4, and Framer Motion.
+            © {new Date().getFullYear()} Kunal Mamgai. Built with React 19, Three.js, WebGL, Tailwind CSS v4, and Framer Motion.
           </footer>
         </section>
       </main>
