@@ -101,13 +101,13 @@ export const technicalJourney = [
     year: '2024',
     phase: 'Frontend Mastery & 3D WebGL',
     title: 'Modern Web & Interactive Simulation Systems',
-    institution: 'PhysicsHub & Open Source Labs',
+    institution: 'Interactive Web & Canvas Labs',
     category: 'Frontend',
     badge: 'WebGL Engineer',
     description:
-      'Engineered interactive physics visualizers (PhysicsHub) and modern React interfaces with Three.js, Canvas API, and Tailwind CSS.',
+      'Engineered interactive GPU-accelerated simulations and modern React interfaces with Three.js, Canvas API, and Tailwind CSS.',
     highlights: [
-      'Built PhysicsHub formula & particle simulation visualizer',
+      'Built real-time interactive particle physics visualizers',
       'Mastered Tailwind CSS and Framer Motion micro-animations',
       'Engineered responsive, 3D WebGL canvas rendering pipelines',
     ],
@@ -310,33 +310,6 @@ export const projects = [
     highlight: true,
   },
   {
-    id: 'physicshub',
-    title: 'PhysicsHub: Interactive WebGL Physics Visualizer',
-    type: 'Interactive Physics Simulation Platform',
-    category: 'Frontend',
-    badge: 'Simulation',
-    description:
-      'A free open-source interactive physics visualization platform helping students and developers explore kinematics, wave mechanics, gravitational fields, and particle dynamics through real-time canvas simulations.',
-    image:
-      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80',
-    ],
-    outcome:
-      'Provides intuitive, interactive visualization of mathematical and physical formulas using GPU-accelerated HTML5 Canvas and WebGL.',
-    features: [
-      'Real-time numerical integrator for gravitational attractors & velocity fields',
-      'Customizable physics parameter sliders (mass, friction, elasticity, wave speed)',
-      'Clean interactive canvas UI with dark theme glassmorphism',
-    ],
-    tags: ['JavaScript', 'WebGL', 'Physics Simulation', 'Canvas API'],
-    role: 'Creator & Lead Developer',
-    github: 'https://github.com/kunalmamgai/physicshub.github.io',
-    demo: 'https://kunalmamgai.github.io/physicshub.github.io',
-    highlight: false,
-  },
-  {
     id: 'hackmatrix-ewaste',
     title: 'HackMatrix: Smart AI E-Waste Recycling Hub',
     type: 'HackMatrix Hackathon by Linpack Club',
@@ -422,9 +395,9 @@ export const processSteps = [
 export const terminalCommands = {
   help: 'Available commands: whoami, journey, skills, projects, surya, razorpay, hackathon, simulation, contact, github, linkedin, clear',
   whoami: 'Kunal Mamgai — Full-Stack & WebGL Developer. Builder of 3D digital twins (SURYA), autonomous AI agents (Razorpay AI Buildathon), and INNOVIT Finalist (AR-Chaelogist).',
-  journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: 3D WebGL & PhysicsHub -> 2024-25: INNOVIT Finalist (AR-Chaelogist) & Razorpay AI Agent -> Present: SURYA 3D Digital Twin & Full-Stack',
+  journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: 3D WebGL & Simulation -> 2024-25: INNOVIT Finalist (AR-Chaelogist) & Razorpay AI Agent -> Present: SURYA 3D Digital Twin & Full-Stack',
   skills: '3D/Graphics: Three.js, WebGL, Canvas API | Frontend: React, Tailwind CSS, JS, Framer Motion | Backend & AI: Python, FastAPI, AI Agents, Node.js, MongoDB | CS: C++, DSA',
-  projects: '1. SURYA: Hybrid Renewable VPP 3D Digital Twin | 2. Razorpay AI Payment Risk Agent | 3. AR-Chaelogist (INNOVIT Finalist) | 4. PhysicsHub Visualizer | 5. HackMatrix E-Waste | 6. Vityarthi AI/ML',
+  projects: '1. SURYA: Hybrid Renewable VPP 3D Digital Twin | 2. Razorpay AI Payment Risk Agent | 3. AR-Chaelogist (INNOVIT Finalist) | 4. HackMatrix E-Waste | 5. Vityarthi AI/ML',
   surya: 'SURYA: Hybrid Renewable VPP platform with live 3D Digital Twin of VIT Bhopal campus (Three.js + WebGL + React + CleanTech). Repo: github.com/kunalmamgai/Hybrid-Renewable-VPP',
   razorpay: 'Razorpay AI Buildathon: Autonomous payment risk & recovery agent analyzing transaction anomalies with policy-gated decisions. Repo: github.com/kunalmamgai/Razorpay-Buildathon',
   hackathon: 'INNOVIT Hackathon Finalist (AR-Chaelogist) + Razorpay AI Buildathon (Payment Risk Agent) + HackMatrix (AI E-Waste Hub).',

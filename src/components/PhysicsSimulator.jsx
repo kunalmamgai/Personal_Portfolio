@@ -167,7 +167,7 @@ export default function PhysicsSimulator() {
                 <FiActivity className="text-base" />
               </span>
               <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-cyan-300">
-                Interactive WebGL Physics Lab (PhysicsHub Inspired)
+                Interactive WebGL Physics Lab & Simulation
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white">
