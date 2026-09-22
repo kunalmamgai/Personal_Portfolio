@@ -1,30 +1,49 @@
-# Kunal Mamgai — Personal Developer Portfolio & Journey Showcase
+# Kunal Mamgai — 3D WebGL Developer & Applied AI Portfolio
 
-An award-grade, interactive developer portfolio and technical journey showcase built with **React 19**, **Vite**, **Tailwind CSS v4**, **Framer Motion**, and **HTML5 Canvas**.
+An award-grade, interactive 3D developer portfolio and technical journey showcase built with **React 19**, **Three.js (WebGL)**, **Vite**, **Tailwind CSS v4**, **Framer Motion**, and **Web Audio API**.
 
-![Kunal Mamgai Portfolio Showcase](https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80)
+![Kunal Mamgai 3D Portfolio](https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80)
 
 ---
 
-## 🚀 Key Highlights & Interactive Features
+## ⚡ Real GitHub Projects & Flagship Innovations
 
-- **Interactive Technical Journey Timeline**: Visual roadmap detailing Kunal's complete learning trajectory—from CBSE 10th Topper at D.A.V. Haldwani to C++ Data Structures & Algorithms, React/Tailwind frontend mastery, INNOVIT Hackathon finalist victory with **AR-Chaelogist**, and current full-stack expansion (FastAPI + MERN).
-- **Interactive Developer Shell Terminal**: Press the **Terminal CLI** button or type `terminal` to open a built-in retro shell. Supports commands like `whoami`, `journey`, `skills`, `projects`, `hackathon`, `contact`, `github`, `linkedin`, and `clear`.
-- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Keyboard-driven modal for instant section navigation and direct external links.
-- **Ambient HTML5 Particle Mesh Canvas**: Custom background particle canvas with dynamic mouse glow reflections.
-- **Categorized Skills Matrix**: Tabbed view of competencies (Frontend Architecture, Backend & APIs, Core CS & DSA, Tools & Ecosystem) with animated proficiency indicators and an infinite marquee skill ribbon.
-- **INNOVIT Hackathon Spotlight**: Featured spotlight card for **AR-Chaelogist**—an AR/VR cultural heritage platform built with React, FastAPI, Python, Vercel, and Render.
-- **Deep-Dive Project Case Studies**: Interactive project cards opening modal overlays with full feature breakdowns and live demo links.
+- **SURYA: Hybrid Renewable VPP & 3D Digital Twin** ([GitHub](https://github.com/kunalmamgai/Hybrid-Renewable-VPP)):
+  - A clean energy Virtual Power Plant (VPP) platform with a live 3D digital twin of the VIT Bhopal campus, campus simulator (solar, wind, weather modeling, battery storage telemetry).
+- **Razorpay AI Payment Risk & Recovery Agent** ([GitHub](https://github.com/kunalmamgai/Razorpay-Buildathon)):
+  - Built for the Razorpay AI Buildathon. Autonomous AI agent that analyzes failed/flagged payment anomalies, provides plain-language risk reasoning, and enforces policy-gated decisions.
+- **AR-Chaelogist: AR/VR Heritage & Culture Portal** ([GitHub](https://github.com/kunalmamgai/INNOVIT-HACKATHON) | [Live Demo](https://heritage-and-culture-portal.vercel.app/)):
+  - National Finalist at the INNOVIT Hackathon (VIT Bhopal). 3D AR artifact inspections and virtual heritage walkthroughs with FastAPI backend.
+- **PhysicsHub: Interactive WebGL Physics Visualizer** ([GitHub](https://github.com/kunalmamgai/physicshub.github.io) | [Live Demo](https://kunalmamgai.github.io/physicshub.github.io)):
+  - Open-source platform visualizing mathematical and physical formulas using real-time GPU-accelerated canvas simulations.
+- **HackMatrix: Smart AI E-Waste Recycling Hub** ([GitHub](https://github.com/kunalmamgai/HackMatrix_AI-Alchemists)):
+  - Linpack Club HackMatrix Hackathon project providing AI-assisted e-waste component classification and nearest drop-off routing.
+- **Vityarthi AI/ML Engine** ([GitHub](https://github.com/kunalmamgai/Vityarthi-AI_ML-PROJECT)):
+  - Applied machine learning platform for student predictive performance modeling.
+
+---
+
+## 🚀 3D WebGL & Interactive Capabilities
+
+- **Three.js Reactive 3D Background (`WebGLScene.jsx`)**: GPU-accelerated starfield, rotating wireframe icosahedrons, floating cyber torus rings, and mouse velocity lighting parallax.
+- **Interactive 3D Hero Gyroscope Core (`Hero3DCanvas.jsx`)**: Multi-axis floating gyroscope sphere with real-time mouse drag rotation controls.
+- **Interactive WebGL Physics Lab (`PhysicsSimulator.jsx`)**: Real-time particle gravity and force field simulator allowing users to interact with gravitational singularities, harmonic waves, and vortex fields directly in the browser.
+- **Procedural Cyber Audio Synthesizer (`AudioEffects.js`)**: Pure Web Audio API procedural sound synthesizer (hover clicks, chime, warp sweeps) with on/off sound toggle.
+- **Interactive Retro CLI Terminal Drawer (`TerminalModal.jsx`)**: Shell commands (`whoami`, `journey`, `skills`, `projects`, `surya`, `razorpay`, `hackathon`, `simulation`, `clear`).
+- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Fast keyboard-driven command navigation.
+- **Full-Width Project Image Galleries & Carousels**: Multi-screenshot gallery with lightbox zoom and thumbnail navigation.
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-- **Frontend Core**: React 19, JavaScript (ES6+), Vite 8
-- **Styling & UI**: Tailwind CSS v4, Glassmorphism design tokens, Custom CSS Keyframes
-- **Animations**: Framer Motion, HTML5 Canvas API
-- **Icons**: React Icons (Feather Icon Set)
-- **Deployment Targets**: Vercel, Render, GitHub Pages
+- **Graphics & 3D**: Three.js, WebGL, Canvas API
+- **Frontend Framework**: React 19, JavaScript (ES6+), Vite 8
+- **Styling & Design System**: Tailwind CSS v4, Glassmorphism, CSS Custom Keyframes
+- **Animation & Motion**: Framer Motion
+- **Audio Engine**: Web Audio API Procedural Synthesizer
+- **Icons**: React Icons (Simple Icons + Feather Icons)
+- **Deployment**: Vercel, Render, GitHub Pages
 
 ---
 
@@ -46,7 +65,7 @@ npm run preview
 
 ---
 
-## 🔗 Profiles & Contact
+## 🔗 Connect with Kunal Mamgai
 
 - **GitHub**: [github.com/kunalmamgai](https://github.com/kunalmamgai)
 - **LinkedIn**: [linkedin.com/in/kunal-mamgai-777k/](https://www.linkedin.com/in/kunal-mamgai-777k/)
