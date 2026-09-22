@@ -14,12 +14,8 @@ An award-grade, interactive 3D developer portfolio and technical journey showcas
   - Built for the Razorpay AI Buildathon. Autonomous AI agent that analyzes failed/flagged payment anomalies, provides plain-language risk reasoning, and enforces policy-gated decisions.
 - **AR-Chaelogist: AR/VR Heritage & Culture Portal** ([GitHub](https://github.com/kunalmamgai/INNOVIT-HACKATHON) | [Live Demo](https://heritage-and-culture-portal.vercel.app/)):
   - National Finalist at the INNOVIT Hackathon (VIT Bhopal). 3D AR artifact inspections and virtual heritage walkthroughs with FastAPI backend.
-- **PhysicsHub: Interactive WebGL Physics Visualizer** ([GitHub](https://github.com/kunalmamgai/physicshub.github.io) | [Live Demo](https://kunalmamgai.github.io/physicshub.github.io)):
-  - Open-source platform visualizing mathematical and physical formulas using real-time GPU-accelerated canvas simulations.
 - **HackMatrix: Smart AI E-Waste Recycling Hub** ([GitHub](https://github.com/kunalmamgai/HackMatrix_AI-Alchemists)):
   - Linpack Club HackMatrix Hackathon project providing AI-assisted e-waste component classification and nearest drop-off routing.
-- **Vityarthi AI/ML Engine** ([GitHub](https://github.com/kunalmamgai/Vityarthi-AI_ML-PROJECT)):
-  - Applied machine learning platform for student predictive performance modeling.
 
 ---
 

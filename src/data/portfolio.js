@@ -336,33 +336,6 @@ export const projects = [
     demo: '#',
     highlight: false,
   },
-  {
-    id: 'vityarthi-ai',
-    title: 'Vityarthi AI/ML Engine',
-    type: 'Machine Learning Academic Platform',
-    category: 'Full-Stack',
-    badge: 'Machine Learning',
-    description:
-      'An applied AI/ML system built for student campus workflows, automated academic performance prediction, and personalized study trajectory recommendations.',
-    image:
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
-    ],
-    outcome:
-      'Implemented predictive machine learning models with Python pipelines and clean RESTful API integration.',
-    features: [
-      'Predictive analytics regression & classification models',
-      'FastAPI microservice endpoints serving inferences in sub-50ms',
-      'Interactive student analytics dashboard',
-    ],
-    tags: ['Python', 'AI/ML', 'FastAPI', 'PyTorch', 'RESTful APIs'],
-    role: 'ML Developer',
-    github: 'https://github.com/kunalmamgai/Vityarthi-AI_ML-PROJECT',
-    demo: '#',
-    highlight: false,
-  },
 ]
 
 export const processSteps = [
@@ -397,7 +370,7 @@ export const terminalCommands = {
   whoami: 'Kunal Mamgai — Full-Stack & WebGL Developer. Builder of 3D digital twins (SURYA), autonomous AI agents (Razorpay AI Buildathon), and INNOVIT Finalist (AR-Chaelogist).',
   journey: '2023: CBSE 10th Topper -> 2023-24: C++ DSA -> 2024: 3D WebGL & Simulation -> 2024-25: INNOVIT Finalist (AR-Chaelogist) & Razorpay AI Agent -> Present: SURYA 3D Digital Twin & Full-Stack',
   skills: '3D/Graphics: Three.js, WebGL, Canvas API | Frontend: React, Tailwind CSS, JS, Framer Motion | Backend & AI: Python, FastAPI, AI Agents, Node.js, MongoDB | CS: C++, DSA',
-  projects: '1. SURYA: Hybrid Renewable VPP 3D Digital Twin | 2. Razorpay AI Payment Risk Agent | 3. AR-Chaelogist (INNOVIT Finalist) | 4. HackMatrix E-Waste | 5. Vityarthi AI/ML',
+  projects: '1. SURYA: Hybrid Renewable VPP 3D Digital Twin | 2. Razorpay AI Payment Risk Agent | 3. AR-Chaelogist (INNOVIT Finalist) | 4. HackMatrix E-Waste Hub',
   surya: 'SURYA: Hybrid Renewable VPP platform with live 3D Digital Twin of VIT Bhopal campus (Three.js + WebGL + React + CleanTech). Repo: github.com/kunalmamgai/Hybrid-Renewable-VPP',
   razorpay: 'Razorpay AI Buildathon: Autonomous payment risk & recovery agent analyzing transaction anomalies with policy-gated decisions. Repo: github.com/kunalmamgai/Razorpay-Buildathon',
   hackathon: 'INNOVIT Hackathon Finalist (AR-Chaelogist) + Razorpay AI Buildathon (Payment Risk Agent) + HackMatrix (AI E-Waste Hub).',
