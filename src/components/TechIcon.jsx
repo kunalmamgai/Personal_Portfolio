@@ -15,9 +15,12 @@ import {
   SiPostman,
   SiVite,
   SiFramer,
+  SiThreedotjs,
+  SiPytorch,
+  SiRust,
 } from 'react-icons/si'
 import { FaCss3Alt } from 'react-icons/fa'
-import { FiServer, FiLayout, FiBox, FiCode, FiCpu } from 'react-icons/fi'
+import { FiServer, FiLayout, FiBox, FiCode, FiCpu, FiActivity, FiZap } from 'react-icons/fi'
 
 const iconMap = {
   react: { icon: SiReact, color: '#61DAFB', name: 'React' },
@@ -42,14 +45,23 @@ const iconMap = {
   'git & github': { icon: SiGit, color: '#F05032', name: 'Git' },
   github: { icon: SiGithub, color: '#FFFFFF', name: 'GitHub' },
   vercel: { icon: SiVercel, color: '#FFFFFF', name: 'Vercel' },
+  render: { icon: FiServer, color: '#46E3B7', name: 'Render' },
   postman: { icon: SiPostman, color: '#FF6C37', name: 'Postman' },
   vite: { icon: SiVite, color: '#646CFF', name: 'Vite' },
   'framer motion': { icon: SiFramer, color: '#0055FF', name: 'Framer Motion' },
+  'three.js': { icon: SiThreedotjs, color: '#FFFFFF', name: 'Three.js' },
+  webgl: { icon: FiBox, color: '#990000', name: 'WebGL' },
+  '3d digital twin': { icon: FiBox, color: '#38BDF8', name: '3D Digital Twin' },
+  'ai agent': { icon: FiCpu, color: '#A855F7', name: 'AI Agent' },
+  'ai/ml': { icon: SiPytorch, color: '#EE4C2C', name: 'AI / ML' },
+  rust: { icon: SiRust, color: '#DEA584', name: 'Rust' },
   'restful apis': { icon: FiServer, color: '#38BDF8', name: 'RESTful APIs' },
   'responsive design': { icon: FiLayout, color: '#A855F7', name: 'Responsive Design' },
   'ar/vr': { icon: FiBox, color: '#EC4899', name: 'AR/VR Tech' },
+  'physics simulation': { icon: FiActivity, color: '#10B981', name: 'Physics Simulation' },
   'data structures (dsa)': { icon: FiCpu, color: '#10B981', name: 'C++ DSA' },
   dsa: { icon: FiCpu, color: '#10B981', name: 'DSA' },
+  fintech: { icon: FiZap, color: '#F59E0B', name: 'FinTech' },
 }
 
 export default function TechIcon({ name, size = 'md', showLabel = true, className = '' }) {
