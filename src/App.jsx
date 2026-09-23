@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { motion as Motion } from 'framer-motion'
 import {
   FiArrowRight,
-  FiCode,
-  FiExternalLink,
   FiGithub,
   FiLinkedin,
   FiMail,
@@ -11,11 +9,7 @@ import {
   FiCommand,
   FiCopy,
   FiMapPin,
-  FiMaximize2,
-  FiVolume2,
-  FiVolumeX,
-  FiActivity,
-  FiBox,
+  FiArrowUpRight,
 } from 'react-icons/fi'
 import {
   developerProfile,
@@ -25,12 +19,9 @@ import {
   projects,
   socialLinks,
   stats,
-  heroOrbiterLogos,
+  coreStack,
 } from './data/portfolio'
 
-import WebGLScene from './components/WebGLScene'
-import Hero3DCanvas from './components/Hero3DCanvas'
-import PhysicsSimulator from './components/PhysicsSimulator'
 import Toast from './components/Toast'
 import TerminalModal from './components/TerminalModal'
 import CommandPalette from './components/CommandPalette'
@@ -39,10 +30,9 @@ import SkillsMatrix from './components/SkillsMatrix'
 import ProjectModal from './components/ProjectModal'
 import HackathonSpotlight from './components/HackathonSpotlight'
 import TechIcon from './components/TechIcon'
-import { audio } from './utils/AudioEffects'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 15 },
   visible: { opacity: 1, y: 0 },
 }
 
@@ -52,28 +42,15 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [projectFilter, setProjectFilter] = useState('All')
   const [toastMessage, setToastMessage] = useState('')
-  const [isMuted, setIsMuted] = useState(false)
 
   const showToast = (msg) => {
     setToastMessage(msg)
-    audio.playChime()
     setTimeout(() => setToastMessage(''), 3500)
   }
 
   const copyEmail = () => {
     navigator.clipboard.writeText('kunalmamgai@gmail.com')
-    showToast('Email address copied to clipboard!')
-  }
-
-  const toggleAudio = () => {
-    const muted = audio.toggleMute()
-    setIsMuted(muted)
-    if (!muted) {
-      audio.playChime()
-      showToast('Cyber Audio FX Enabled ⚡')
-    } else {
-      showToast('Audio FX Muted')
-    }
+    showToast('Email address copied to clipboard')
   }
 
   const filteredProjects = projectFilter === 'All'
@@ -81,11 +58,8 @@ export default function App() {
     : projects.filter((p) => p.category === projectFilter)
 
   return (
-    <div className="relative min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-white">
-      {/* 3D WebGL Three.js Reactive Background Scene */}
-      <WebGLScene />
-
-      {/* Toast Notification System */}
+    <div className="relative min-h-screen bg-[#0c0d10] text-zinc-100 selection:bg-zinc-800 selection:text-white">
+      {/* Toast Notification */}
       <Toast message={toastMessage} onClose={() => setToastMessage('')} />
 
       {/* Terminal Modal Drawer */}
@@ -98,43 +72,37 @@ export default function App() {
       <CommandPalette
         isOpen={isPaletteOpen}
         onClose={() => setIsPaletteOpen(false)}
-        onOpenTerminal={() => {
-          setIsTerminalOpen(true)
-          audio.playWarp()
-        }}
+        onOpenTerminal={() => setIsTerminalOpen(true)}
       />
 
-      {/* Project Case Study Modal with Full-Width Carousel */}
+      {/* Project Case Study Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={Boolean(selectedProject)}
         onClose={() => setSelectedProject(null)}
       />
 
-      {/* Glassmorphic Navigation Bar */}
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/70 backdrop-blur-2xl">
+      {/* Minimalist Navigation Header */}
+      <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-[#0c0d10]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           {/* Brand Mark */}
           <a
             href="#home"
-            onMouseEnter={() => audio.playHover()}
-            className="flex items-center gap-3 text-white group"
+            className="flex items-center gap-2.5 text-zinc-100 group"
           >
-            <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-cyan-400/40 bg-slate-900 shadow-[0_4px_20px_rgba(34,211,238,0.25)] group-hover:scale-105 transition">
-              <span className="font-display font-black text-sm text-cyan-300">KM</span>
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-800 border border-zinc-700 font-mono text-xs font-bold text-zinc-200">
+              KM
             </span>
-            <span className="font-display text-lg font-bold tracking-wide">Kunal.dev</span>
+            <span className="font-display font-semibold text-sm tracking-tight">Kunal Mamgai</span>
           </a>
 
-          {/* Desktop Links */}
-          <nav className="hidden items-center gap-7 lg:flex">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden items-center gap-8 md:flex">
             {navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                onMouseEnter={() => audio.playHover()}
-                onClick={() => audio.playClick()}
-                className="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-cyan-300 transition"
+                className="text-xs font-medium uppercase tracking-wider text-zinc-400 hover:text-zinc-100 transition"
               >
                 {item.label}
               </a>
@@ -142,193 +110,151 @@ export default function App() {
           </nav>
 
           {/* Quick Action Controls */}
-          <div className="flex items-center gap-3">
-            {/* Audio Toggle Button */}
+          <div className="flex items-center gap-2.5">
             <button
-              onClick={toggleAudio}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-cyan-400/40 hover:text-cyan-300 transition"
-              title={isMuted ? 'Unmute Audio FX' : 'Mute Audio FX'}
-            >
-              {isMuted ? <FiVolumeX className="text-sm" /> : <FiVolume2 className="text-sm text-cyan-400" />}
-            </button>
-
-            <button
-              onClick={() => {
-                setIsPaletteOpen(true)
-                audio.playClick()
-              }}
-              onMouseEnter={() => audio.playHover()}
-              className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300 hover:border-cyan-400/30 hover:text-white transition"
+              onClick={() => setIsPaletteOpen(true)}
+              className="hidden sm:inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-400 hover:border-zinc-700 hover:text-zinc-200 transition"
               title="Command Palette (Cmd+K)"
             >
-              <FiCommand className="text-cyan-400" />
-              <span>Cmd+K</span>
+              <FiCommand className="text-zinc-400" />
+              <span className="font-mono text-[11px]">⌘K</span>
             </button>
 
             <button
-              onClick={() => {
-                setIsTerminalOpen(true)
-                audio.playWarp()
-              }}
-              onMouseEnter={() => audio.playHover()}
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-xs font-bold text-cyan-200 hover:border-cyan-300 hover:bg-cyan-300/20 transition shadow-[0_0_15px_rgba(34,211,238,0.2)]"
+              onClick={() => setIsTerminalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800/80 px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:bg-zinc-700 transition"
             >
-              <FiTerminal />
-              <span>Terminal CLI</span>
+              <FiTerminal className="text-xs" />
+              <span>Terminal</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content Area */}
-      <main id="home" className="relative z-10">
-        {/* HERO SECTION WITH 3D WEBGL CORE & FLOATING ORBITERS */}
-        <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-28 lg:pt-20 items-center">
-          <Motion.div
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.7 }}
-            variants={fadeUp}
-          >
-            {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold text-cyan-200 mb-6">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-              <span>Full-Stack 3D WebGL & Applied AI Systems Engineer</span>
-            </div>
+      {/* Main Content */}
+      <main id="home">
+        {/* HERO SECTION — Clean, Editorial, Human */}
+        <section className="mx-auto max-w-7xl px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center">
+            <Motion.div
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5 }}
+              variants={fadeUp}
+            >
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/70 px-3.5 py-1 text-xs text-zinc-300 mb-6">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="font-mono text-[11px]">Available for Full-Stack & Engineering Roles</span>
+              </div>
 
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
-              Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400">3D WebGL</span> & Autonomous AI Platforms
-            </h1>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-100 leading-[1.1]">
+                Full-stack developer building clean web products, 3D simulations & AI systems.
+              </h1>
 
-            <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-300">
-              {developerProfile.intro} Creator of <strong>SURYA 3D Digital Twin</strong>, <strong>Razorpay AI Risk Agent</strong>, and <strong>AR-Chaelogist</strong>.
-            </p>
+              <p className="mt-5 max-w-2xl text-base sm:text-lg text-zinc-400 leading-relaxed">
+                {developerProfile.intro}
+              </p>
 
-            {/* Tech Badges Row with Logos */}
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {heroOrbiterLogos.map((tech) => (
-                <span
-                  key={tech.name}
-                  onMouseEnter={() => audio.playHover()}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-md hover:border-cyan-400/40 transition"
+              {/* Core Stack Badges */}
+              <div className="mt-6 flex flex-wrap gap-2">
+                {coreStack.slice(0, 7).map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-800/90 bg-zinc-900/60 px-3 py-1 text-xs text-zinc-300"
+                  >
+                    <TechIcon name={tech} size="sm" showLabel={true} />
+                  </span>
+                ))}
+              </div>
+
+              {/* Action CTAs */}
+              <div className="mt-8 flex flex-wrap gap-3.5">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-zinc-100 px-5 py-2.5 text-xs font-semibold text-zinc-950 hover:bg-zinc-200 transition"
                 >
-                  <TechIcon name={tech.name} size="sm" showLabel={true} />
-                </span>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                onClick={() => audio.playClick()}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition shadow-[0_4px_20px_rgba(34,211,238,0.4)]"
-              >
-                <span>Explore 3D Projects</span>
-                <FiArrowRight />
-              </a>
-              <a
-                href="#simulation"
-                onClick={() => audio.playClick()}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-3.5 text-sm font-semibold text-cyan-200 hover:bg-cyan-400/20 transition"
-              >
-                <FiActivity className="text-cyan-400" />
-                <span>Launch Physics Lab</span>
-              </a>
-              <button
-                onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition"
-              >
-                <span>Copy Email</span>
-                <FiCopy />
-              </button>
-            </div>
-
-            {/* Live Stats Row */}
-            <div className="mt-12 grid gap-4 grid-cols-2 sm:grid-cols-4">
-              {stats.map((st) => (
-                <div
-                  key={st.label}
-                  className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-md hover:border-cyan-400/30 transition"
+                  <span>Explore Work</span>
+                  <FiArrowRight />
+                </a>
+                <button
+                  onClick={copyEmail}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/60 px-5 py-2.5 text-xs font-medium text-zinc-300 hover:border-zinc-700 hover:text-white transition"
                 >
-                  <p className="font-display text-lg sm:text-xl font-bold text-cyan-300">{st.value}</p>
-                  <p className="mt-1 text-xs text-slate-400 leading-snug">{st.label}</p>
-                </div>
-              ))}
-            </div>
-          </Motion.div>
+                  <FiCopy className="text-zinc-400" />
+                  <span>kunalmamgai@gmail.com</span>
+                </button>
+              </div>
 
-          {/* Profile Visual Card with 3D Gyroscope Canvas */}
-          <Motion.div
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.7, delay: 0.15 }}
-            variants={fadeUp}
-            className="relative flex flex-col items-center"
-          >
-            {/* Interactive 3D Gyroscope Canvas */}
-            <div className="relative mb-6 rounded-3xl border border-cyan-400/30 bg-slate-900/60 p-2 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
-              <Hero3DCanvas />
-            </div>
+              {/* Stats Row */}
+              <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-8 border-t border-zinc-800/60">
+                {stats.map((st) => (
+                  <div key={st.label}>
+                    <p className="font-display text-base sm:text-lg font-bold text-zinc-200">{st.value}</p>
+                    <p className="mt-0.5 text-xs text-zinc-400 leading-snug">{st.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Motion.div>
 
             {/* Profile Photo Card */}
-            <div className="relative w-full max-w-md overflow-hidden rounded-[2.2rem] border border-cyan-400/30 bg-slate-900/80 p-4 backdrop-blur-2xl shadow-[0_20px_60px_rgba(2,6,23,0.8)] ring-1 ring-cyan-400/20">
-              <div className="relative overflow-hidden rounded-[1.6rem]">
-                <img
-                  src={developerProfile.image}
-                  alt={developerProfile.alt}
-                  className="h-64 sm:h-72 w-full object-cover object-top saturate-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-slate-950/80 p-4 backdrop-blur-md">
-                  <div className="flex items-center justify-between">
+            <Motion.div
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              variants={fadeUp}
+              className="relative mx-auto w-full max-w-sm lg:max-w-none"
+            >
+              <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-2.5 shadow-2xl">
+                <div className="relative overflow-hidden rounded-xl bg-zinc-950">
+                  <img
+                    src={developerProfile.image}
+                    alt={developerProfile.alt}
+                    className="h-80 sm:h-96 w-full object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between rounded-lg bg-zinc-900/90 border border-zinc-800/80 px-3.5 py-2.5 backdrop-blur-sm">
                     <div>
-                      <h3 className="font-display text-lg font-bold text-white">{developerProfile.name}</h3>
-                      <p className="text-xs text-cyan-300">{developerProfile.role}</p>
+                      <p className="font-display font-semibold text-xs text-zinc-200">{developerProfile.name}</p>
+                      <p className="text-[11px] text-zinc-400">{developerProfile.role}</p>
                     </div>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                      <FiMapPin className="text-cyan-400" />
-                      <span>Haldwani</span>
+                    <div className="flex items-center gap-1 text-[11px] text-zinc-400 font-mono">
+                      <FiMapPin className="text-xs text-zinc-400" />
+                      <span>Haldwani, IN</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Motion.div>
+            </Motion.div>
+          </div>
         </section>
 
-        {/* TECHNICAL JOURNEY SECTION */}
-        <JourneyTimeline />
-
-        {/* PROJECTS SHOWCASE SECTION (FEATURING REAL GITHUB REPOSITORIES) */}
-        <section id="projects" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        {/* WORK / PROJECTS SHOWCASE SECTION (Clean Editorial Grid) */}
+        <section id="projects" className="mx-auto max-w-7xl px-6 py-24 lg:px-8 border-t border-zinc-800/80">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                GitHub Repositories & Real Systems
+              <span className="text-xs font-mono font-medium uppercase tracking-widest text-zinc-400">
+                Selected Projects
               </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                Featured Projects Showcase
+              <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100">
+                Featured Work
               </h2>
-              <p className="mt-4 max-w-xl text-base text-slate-300">
-                Live 3D Digital Twins, autonomous AI risk agents, AR/VR platforms, and physics simulators directly from my GitHub. Click any card to open full-width screenshot carousels and repository details.
+              <p className="mt-2 max-w-xl text-sm sm:text-base text-zinc-400">
+                Clean full-stack systems, 3D digital twins, and autonomous AI agents. Click any project to inspect the full case study and screenshot gallery.
               </p>
             </div>
 
             {/* Filter Pills */}
             <div className="flex flex-wrap gap-2">
-              {['All', 'Full-Stack', 'Hackathon', 'Frontend'].map((category) => (
+              {['All', 'Full-Stack', 'Hackathon'].map((category) => (
                 <button
                   key={category}
-                  onClick={() => {
-                    setProjectFilter(category)
-                    audio.playClick()
-                  }}
-                  className={`rounded-full px-4 py-2 text-xs font-medium transition ${
+                  onClick={() => setProjectFilter(category)}
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition ${
                     projectFilter === category
-                      ? 'bg-cyan-400 text-slate-950 font-bold shadow-[0_4px_15px_rgba(34,211,238,0.4)]'
-                      : 'border border-white/10 bg-white/5 text-slate-400 hover:text-white'
+                      ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                      : 'border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700'
                   }`}
                 >
                   {category}
@@ -337,84 +263,79 @@ export default function App() {
             </div>
           </div>
 
-          {/* Projects Grid with Full-Width Visual Screenshots */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Minimalist Projects Grid */}
+          <div className="grid gap-8 md:grid-cols-2">
             {filteredProjects.map((project, idx) => (
               <Motion.article
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                onClick={() => {
-                  setSelectedProject(project)
-                  audio.playWarp()
-                }}
-                className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 backdrop-blur-xl hover:border-cyan-400/40 transition duration-300 shadow-[0_16px_40px_rgba(2,6,23,0.6)] flex flex-col justify-between"
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.35, delay: idx * 0.05 }}
+                onClick={() => setSelectedProject(project)}
+                className="group cursor-pointer overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700 hover:bg-zinc-900/60 transition flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-56 w-full overflow-hidden bg-slate-950">
+                  {/* Clean uncropped media banner */}
+                  <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-zinc-950">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
+                      className="h-full w-full object-cover filter contrast-[1.02] group-hover:scale-105 transition duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
                     
-                    <span className="absolute top-4 left-4 rounded-full bg-slate-950/80 border border-white/20 px-3 py-1 text-[10px] font-bold text-cyan-300 uppercase tracking-wider backdrop-blur">
-                      {project.badge}
-                    </span>
+                    <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+                      <span className="rounded-md bg-zinc-900/90 border border-zinc-700/80 px-2.5 py-0.5 text-[11px] font-mono text-zinc-300 backdrop-blur-sm">
+                        {project.badge}
+                      </span>
+                    </div>
 
-                    <button
-                      className="absolute bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 border border-white/20 text-white backdrop-blur group-hover:bg-cyan-400 group-hover:text-slate-950 transition"
-                      title="View Full Case Study & Gallery"
-                    >
-                      <FiMaximize2 className="text-sm" />
-                    </button>
+                    <div className="absolute top-3.5 right-3.5">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-900/80 border border-zinc-700/80 text-zinc-300 opacity-0 group-hover:opacity-100 transition">
+                        <FiArrowUpRight className="text-sm" />
+                      </span>
+                    </div>
                   </div>
 
                   <div className="p-6">
-                    <span className="text-xs font-mono text-cyan-400">{project.type}</span>
-                    <h3 className="mt-2 font-display text-xl font-bold text-white group-hover:text-cyan-300 transition">
+                    <div className="flex items-center justify-between text-xs text-zinc-400 font-mono mb-2">
+                      <span>{project.type}</span>
+                      <span>{project.year}</span>
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-zinc-100 group-hover:text-white transition">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                    <p className="mt-2.5 text-sm text-zinc-400 leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Tech Logos & Links Row */}
-                <div className="px-6 pb-6 pt-2 border-t border-white/5 flex flex-col gap-3">
-                  <div className="flex flex-wrap gap-2">
+                {/* Tags & Action Row */}
+                <div className="px-6 pb-6 pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-800/60">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-950 px-2.5 py-1 text-[11px] text-slate-300"
+                        className="rounded-md border border-zinc-800 bg-zinc-900/80 px-2.5 py-0.5 text-[11px] text-zinc-400"
                       >
-                        <TechIcon name={tag} size="sm" showLabel={true} />
+                        {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-cyan-300 pt-1">
-                    <span className="font-semibold group-hover:underline flex items-center gap-1">
-                      View 3D Case Study <FiArrowRight />
-                    </span>
-                    {project.github && (
-                      <span className="text-slate-400 flex items-center gap-1">
-                        <FiGithub /> GitHub
-                      </span>
-                    )}
-                  </div>
+                  <span className="text-xs font-medium text-zinc-300 flex items-center gap-1 group-hover:text-white">
+                    Case Study <FiArrowRight className="text-xs" />
+                  </span>
                 </div>
               </Motion.article>
             ))}
           </div>
         </section>
 
-        {/* INTERACTIVE WEBGL PHYSICS SIMULATION LAB */}
-        <PhysicsSimulator />
+        {/* TECHNICAL JOURNEY TIMELINE */}
+        <JourneyTimeline />
 
         {/* HACKATHON FEATURE SPOTLIGHT */}
         <HackathonSpotlight />
@@ -423,24 +344,17 @@ export default function App() {
         <SkillsMatrix />
 
         {/* ABOUT & PHILOSOPHY SECTION */}
-        <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <Motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            variants={fadeUp}
-            className="rounded-[2.5rem] border border-white/10 bg-slate-900/50 p-8 sm:p-12 backdrop-blur-xl"
-          >
+        <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8 border-t border-zinc-800/80">
+          <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/30 p-8 sm:p-12">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-center">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                  Engineering Philosophy
+                <span className="text-xs font-mono font-medium uppercase tracking-widest text-zinc-400">
+                  Engineering Principles
                 </span>
-                <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-white">
-                  Bridging complex computation with stunning visual artistry.
+                <h2 className="mt-2 font-display text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
+                  Crafting software that balances technical rigor with human utility.
                 </h2>
-                <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
                   {developerProfile.bio}
                 </p>
               </div>
@@ -449,109 +363,99 @@ export default function App() {
                 {featuredSkills.map((sk) => (
                   <div
                     key={sk.title}
-                    className="rounded-2xl border border-white/10 bg-slate-950/80 p-5"
+                    className="rounded-xl border border-zinc-800/80 bg-zinc-900/60 p-5"
                   >
-                    <h3 className="font-display font-bold text-base text-white">{sk.title}</h3>
-                    <p className="mt-2 text-xs text-slate-400 leading-relaxed">{sk.description}</p>
+                    <h3 className="font-display font-semibold text-sm text-zinc-200">{sk.title}</h3>
+                    <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{sk.description}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </Motion.div>
+          </div>
         </section>
 
         {/* WORK PROCESS SECTION */}
-        <section id="process" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <div className="rounded-[2.5rem] border border-white/10 bg-slate-900/50 p-8 sm:p-12 backdrop-blur-xl">
-            <div className="max-w-2xl mb-12">
-              <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                Engineering Workflow
-              </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-white">
-                How I Architect High-End Software Products
-              </h2>
-            </div>
+        <section id="process" className="mx-auto max-w-7xl px-6 py-24 lg:px-8 border-t border-zinc-800/80">
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-mono font-medium uppercase tracking-widest text-zinc-400">
+              Workflow
+            </span>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100">
+              How I Build Software
+            </h2>
+          </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {processSteps.map((step) => (
-                <div
-                  key={step.step}
-                  className="rounded-2xl border border-white/10 bg-slate-950/80 p-6 flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="font-mono text-2xl font-bold text-cyan-400">{step.step}</span>
-                    <h3 className="mt-4 font-display text-lg font-bold text-white">{step.title}</h3>
-                    <p className="mt-3 text-xs text-slate-400 leading-relaxed">{step.description}</p>
-                  </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step) => (
+              <div
+                key={step.step}
+                className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="font-mono text-sm font-bold text-zinc-400">{step.step}</span>
+                  <h3 className="mt-3 font-display text-base font-bold text-zinc-200">{step.title}</h3>
+                  <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{step.description}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* CONTACT SECTION & FOOTER */}
-        <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 pt-12 lg:px-8">
-          <Motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="rounded-[2.5rem] border border-cyan-400/30 bg-gradient-to-br from-cyan-950/40 via-slate-900 to-slate-950 p-8 sm:p-12 shadow-[0_20px_70px_rgba(2,6,23,0.8)]"
-          >
+        <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 pt-12 lg:px-8 border-t border-zinc-800/80">
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 sm:p-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] items-center">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-400">
-                  Let&apos;s Build Together
+                <span className="text-xs font-mono font-medium uppercase tracking-widest text-zinc-400">
+                  Get in Touch
                 </span>
-                <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-                  Ready to collaborate on high-performance 3D & full-stack systems?
+                <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100">
+                  Let&apos;s build something exceptional.
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm sm:text-base text-slate-300">
-                  Whether you have an applied AI system, 3D WebGL digital twin, hackathon team, or software engineering opportunity, let&apos;s build something extraordinary!
+                <p className="mt-3 max-w-2xl text-sm sm:text-base text-zinc-400">
+                  I am currently open to full-stack engineering roles, high-impact web products, and technical collaborations.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="mailto:kunalmamgai@gmail.com"
-                  onClick={() => audio.playClick()}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition shadow-[0_4px_20px_rgba(34,211,238,0.4)]"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-zinc-100 px-5 py-2.5 text-xs font-semibold text-zinc-950 hover:bg-zinc-200 transition"
                 >
                   <FiMail />
                   <span>kunalmamgai@gmail.com</span>
                 </a>
                 <button
                   onClick={copyEmail}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800/60 px-5 py-2.5 text-xs font-medium text-zinc-200 hover:bg-zinc-800 transition"
                 >
                   <FiCopy />
-                  <span>Copy</span>
+                  <span>Copy Email</span>
                 </button>
               </div>
             </div>
 
-            {/* Social Buttons */}
-            <div className="mt-12 flex flex-wrap gap-4 border-t border-white/10 pt-8">
+            {/* Social Links */}
+            <div className="mt-10 flex flex-wrap gap-3 border-t border-zinc-800/80 pt-6">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  onClick={() => audio.playClick()}
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-slate-200 hover:border-cyan-400/40 hover:text-white transition"
+                  className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3.5 py-2 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition font-mono"
                 >
-                  {link.label === 'GitHub' && <FiGithub className="text-cyan-400 text-sm" />}
-                  {link.label === 'LinkedIn' && <FiLinkedin className="text-cyan-400 text-sm" />}
-                  {link.label === 'Email' && <FiMail className="text-cyan-400 text-sm" />}
-                  <span>{link.label}: {link.username}</span>
+                  {link.label === 'GitHub' && <FiGithub className="text-zinc-400" />}
+                  {link.label === 'LinkedIn' && <FiLinkedin className="text-zinc-400" />}
+                  {link.label === 'Email' && <FiMail className="text-zinc-400" />}
+                  <span>{link.label}</span>
                 </a>
               ))}
             </div>
-          </Motion.div>
+          </div>
 
-          <footer className="mt-12 text-center text-xs text-slate-500 font-mono">
-            © {new Date().getFullYear()} Kunal Mamgai. Built with React 19, Three.js, WebGL, Tailwind CSS v4, and Framer Motion.
+          <footer className="mt-12 text-center text-xs text-zinc-400 font-mono">
+            © {new Date().getFullYear()} Kunal Mamgai · Built with React 19, Tailwind CSS v4 & Three.js.
           </footer>
         </section>
       </main>

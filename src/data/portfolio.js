@@ -177,6 +177,24 @@ export const skillCategories = [
   },
 ]
 
+export const featuredSkills = [
+  {
+    title: 'Full-Stack Web Architecture',
+    description:
+      'Designing clean, maintainable systems connecting React frontends with high-speed FastAPI and Node.js microservices.',
+  },
+  {
+    title: '3D Simulation & WebGL',
+    description:
+      'Building interactive 3D digital twins and simulations using Three.js and HTML5 Canvas with smooth 60fps GPU performance.',
+  },
+  {
+    title: 'Autonomous AI Agents',
+    description:
+      'Engineering policy-gated reasoning agents and predictive ML pipelines with Python and clean REST API integrations.',
+  },
+]
+
 export const projects = [
   {
     id: 'surya-vpp',
