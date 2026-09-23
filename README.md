@@ -1,61 +1,57 @@
-# Kunal Mamgai — 3D WebGL Developer & Applied AI Portfolio
+# Kunal Mamgai — Full-Stack Software Developer
 
-An award-grade, interactive 3D developer portfolio and technical journey showcase built with **React 19**, **Three.js (WebGL)**, **Vite**, **Tailwind CSS v4**, **Framer Motion**, and **Web Audio API**.
+A clean, minimalist, editorial developer portfolio and technical journey showcase built with **React 19**, **Tailwind CSS v4**, **Three.js**, **Vite**, and **Framer Motion**.
 
-![Kunal Mamgai 3D Portfolio](https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80)
+Designed with an artist-first, engineer-centric aesthetic: high-contrast human typography, deep matte neutral surfaces (`#0c0d10`), and an editorial project grid focused entirely on real software craft without generic AI template gimmicks.
 
 ---
 
-## ⚡ Real GitHub Projects & Flagship Innovations
+## ⚡ Featured Projects & Engineering Work
 
 - **SURYA: Hybrid Renewable VPP & 3D Digital Twin** ([GitHub](https://github.com/kunalmamgai/Hybrid-Renewable-VPP)):
-  - A clean energy Virtual Power Plant (VPP) platform with a live 3D digital twin of the VIT Bhopal campus, campus simulator (solar, wind, weather modeling, battery storage telemetry).
+  - CleanTech Virtual Power Plant platform featuring a live 3D digital twin of the VIT Bhopal campus with real-time solar/wind simulations, weather modeling, and power grid dispatch telemetry.
 - **Razorpay AI Payment Risk & Recovery Agent** ([GitHub](https://github.com/kunalmamgai/Razorpay-Buildathon)):
-  - Built for the Razorpay AI Buildathon. Autonomous AI agent that analyzes failed/flagged payment anomalies, provides plain-language risk reasoning, and enforces policy-gated decisions.
-- **AR-Chaelogist: AR/VR Heritage & Culture Portal** ([GitHub](https://github.com/kunalmamgai/INNOVIT-HACKATHON) | [Live Demo](https://heritage-and-culture-portal.vercel.app/)):
-  - National Finalist at the INNOVIT Hackathon (VIT Bhopal). 3D AR artifact inspections and virtual heritage walkthroughs with FastAPI backend.
+  - Autonomous AI agent built for the Razorpay AI Buildathon that analyzes payment anomalies, explains risk in plain language, and enforces policy-gated decisions.
+- **AR-Chaelogist: AR/VR Cultural Heritage Platform** ([GitHub](https://github.com/kunalmamgai/INNOVIT-HACKATHON) | [Live Demo](https://heritage-and-culture-portal.vercel.app/)):
+  - National Finalist at the INNOVIT Hackathon (VIT Bhopal). 3D AR artifact inspections and virtual heritage walkthroughs with a FastAPI backend.
 - **HackMatrix: Smart AI E-Waste Recycling Hub** ([GitHub](https://github.com/kunalmamgai/HackMatrix_AI-Alchemists)):
-  - Linpack Club HackMatrix Hackathon project providing AI-assisted e-waste component classification and nearest drop-off routing.
+  - HackMatrix Hackathon project by Linpack Club providing AI-assisted e-waste classification and nearest recycling drop-off navigation.
 
 ---
 
-## 🚀 3D WebGL & Interactive Capabilities
+## 🎨 Design Philosophy & Principles
 
-- **Three.js Reactive 3D Background (`WebGLScene.jsx`)**: GPU-accelerated starfield, rotating wireframe icosahedrons, floating cyber torus rings, and mouse velocity lighting parallax.
-- **Interactive 3D Hero Gyroscope Core (`Hero3DCanvas.jsx`)**: Multi-axis floating gyroscope sphere with real-time mouse drag rotation controls.
-- **Interactive WebGL Physics Lab (`PhysicsSimulator.jsx`)**: Real-time particle gravity and force field simulator allowing users to interact with gravitational singularities, harmonic waves, and vortex fields directly in the browser.
-- **Procedural Cyber Audio Synthesizer (`AudioEffects.js`)**: Pure Web Audio API procedural sound synthesizer (hover clicks, chime, warp sweeps) with on/off sound toggle.
-- **Interactive Retro CLI Terminal Drawer (`TerminalModal.jsx`)**: Shell commands (`whoami`, `journey`, `skills`, `projects`, `surya`, `razorpay`, `hackathon`, `simulation`, `clear`).
-- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Fast keyboard-driven command navigation.
-- **Full-Width Project Image Galleries & Carousels**: Multi-screenshot gallery with lightbox zoom and thumbnail navigation.
+- **Editorial Grid & Media Focus**: Projects presented with uncropped screenshots, detailed architecture breakdowns, and full-width gallery carousels.
+- **Deep Matte Neutral Theme (`#0c0d10`)**: Replaces synthetic neon gradients with rich charcoal surfaces and subtle zinc borders.
+- **Human Typography**: Crisp sans-serif hierarchy, subtle mono accents for metadata, and natural pacing.
+- **Interactive Tools**: Lightweight Command Palette (`⌘K`) and Retro CLI Terminal drawer (`whoami`, `journey`, `skills`, `projects`, `surya`, `razorpay`, `hackathon`, `contact`).
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Tech Stack
 
-- **Graphics & 3D**: Three.js, WebGL, Canvas API
-- **Frontend Framework**: React 19, JavaScript (ES6+), Vite 8
-- **Styling & Design System**: Tailwind CSS v4, Glassmorphism, CSS Custom Keyframes
-- **Animation & Motion**: Framer Motion
-- **Audio Engine**: Web Audio API Procedural Synthesizer
-- **Icons**: React Icons (Simple Icons + Feather Icons)
-- **Deployment**: Vercel, Render, GitHub Pages
+- **Frontend**: React 19, JavaScript (ES6+), Vite 8, Framer Motion
+- **3D & Graphics**: Three.js, Canvas API
+- **Styling**: Tailwind CSS v4, Glassmorphism tokens
+- **Backend & APIs**: Python, FastAPI, Node.js, RESTful APIs, MongoDB
+- **Languages**: C++, Python, JavaScript, HTML5/CSS3
+- **Tools & Cloud**: Git, GitHub, Vercel, Render, Postman
 
 ---
 
-## 💻 Local Development & Scripts
+## 💻 Local Development
 
 ```bash
-# 1. Install dependencies
+# Install dependencies
 npm install
 
-# 2. Run local development server
+# Start development server
 npm run dev
 
-# 3. Create production bundle
+# Build production bundle
 npm run build
 
-# 4. Preview production build locally
+# Preview build locally
 npm run preview
 ```
 
